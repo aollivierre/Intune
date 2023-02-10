@@ -1,0 +1,14 @@
+{
+    "CloudAssignedTenantId":  "f2a78c1f-30cb-4881-b797-4b2940c08f9a",
+    "CloudAssignedAutopilotUpdateTimeout":  1800000,
+    "CloudAssignedAutopilotUpdateDisabled":  1,
+    "CloudAssignedForcedEnrollment":  1,
+    "Version":  2049,
+    "Comment_File":  "Profile WindowsAutopilotDemo1",
+    "CloudAssignedAadServerData":  "{\"ZeroTouchConfig\":{\"CloudAssignedTenantUpn\":\"\",\"ForcedEnrollment\":1,\"CloudAssignedTenantDomain\":\"ccicloud.ca\"}}",
+    "CloudAssignedOobeConfig":  1310,
+    "CloudAssignedDomainJoinMethod":  0,
+    "ZtdCorrelationId":  "d6fe043b-8047-4600-b463-6332b1262e24",
+    "CloudAssignedLanguage":  "os-default",
+    "CloudAssignedTenantDomain":  "ccicloud.ca"
+}

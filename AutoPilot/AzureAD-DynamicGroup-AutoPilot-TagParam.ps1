@@ -1,0 +1,1 @@
+(device.devicePhysicalIDs -any _ -contains "[ZTDId]")

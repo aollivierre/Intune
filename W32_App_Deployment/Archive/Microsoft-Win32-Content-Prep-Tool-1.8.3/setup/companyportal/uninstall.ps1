@@ -1,0 +1,1 @@
+Remove-AppxPackage -Package "Microsoft.CompanyPortal_11.1.254.0_x64__8wekyb3d8bbwe"

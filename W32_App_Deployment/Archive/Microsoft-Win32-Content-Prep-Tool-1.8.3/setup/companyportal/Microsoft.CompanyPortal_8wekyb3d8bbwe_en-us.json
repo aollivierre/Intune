@@ -1,0 +1,270 @@
+{
+  "language": "en-us",
+  "displayName": "Company Portal",
+  "images": [
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.19127.9007199266246184.7b7dea7e-e480-4008-b420-a807cc23c9cf.53a81e30-9d96-4221-9e14-63cdeb752519",
+      "purpose": "Logo",
+      "height": "50",
+      "width": "50",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 1457
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.19978.9007199266246184.7b7dea7e-e480-4008-b420-a807cc23c9cf.70cd9efe-5874-4bf4-933c-b2e46302339f",
+      "purpose": "Logo",
+      "height": "75",
+      "width": "75",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 2429
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.10769.9007199266246184.7b7dea7e-e480-4008-b420-a807cc23c9cf.4d0fe093-40ab-4d97-8baf-c5263a583e14",
+      "purpose": "Logo",
+      "height": "100",
+      "width": "100",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 3428
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.2455.9007199266246184.7b7dea7e-e480-4008-b420-a807cc23c9cf.37a32170-1281-4d69-96ba-bf21d9d6ff7e",
+      "purpose": "Tile",
+      "height": "150",
+      "width": "150",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 3462
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.18113.9007199266246184.7b7dea7e-e480-4008-b420-a807cc23c9cf.26e29b32-cb52-44d3-aa70-e3f9a0eebf5e",
+      "purpose": "Tile",
+      "height": "225",
+      "width": "225",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 6155
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.25823.9007199266246184.7b7dea7e-e480-4008-b420-a807cc23c9cf.7c2bcba4-c0e2-4cda-988d-66348f8af967",
+      "purpose": "Tile",
+      "height": "300",
+      "width": "300",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 8352
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.4452.9007199266246184.7b7dea7e-e480-4008-b420-a807cc23c9cf.4f65390b-a267-4c84-8303-f3f63f214aed",
+      "purpose": "Tile",
+      "height": "44",
+      "width": "44",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 1225
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.21899.9007199266246184.7b7dea7e-e480-4008-b420-a807cc23c9cf.2a2ae19f-5f4c-4643-986a-60de534e1ff7",
+      "purpose": "Tile",
+      "height": "66",
+      "width": "66",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 2124
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.5461.9007199266246184.7b7dea7e-e480-4008-b420-a807cc23c9cf.7e0cd88d-a216-4e9f-9646-65893d0621f2",
+      "purpose": "Tile",
+      "height": "88",
+      "width": "88",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 2972
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.21089.9007199266246184.7b7dea7e-e480-4008-b420-a807cc23c9cf.3a4ddb07-43f2-4cca-bbf3-99d45ddecdf4",
+      "purpose": "Tile",
+      "height": "310",
+      "width": "310",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 7474
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.33702.9007199266246184.7b7dea7e-e480-4008-b420-a807cc23c9cf.6cb5f2a5-e4e0-4d67-b22a-8af90fb0a7cf",
+      "purpose": "Tile",
+      "height": "465",
+      "width": "465",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 12645
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.41220.9007199266246184.7b7dea7e-e480-4008-b420-a807cc23c9cf.7bfd8069-cead-4883-beb9-19c47bf8724b",
+      "purpose": "Tile",
+      "height": "620",
+      "width": "620",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 21104
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.119.9007199266246184.7b7dea7e-e480-4008-b420-a807cc23c9cf.715dbf47-7e7a-4a11-9932-0554d1988d0c",
+      "purpose": "Tile",
+      "height": "71",
+      "width": "71",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 2385
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.17769.9007199266246184.7b7dea7e-e480-4008-b420-a807cc23c9cf.1db55322-407b-4a43-b9ef-3d5b778e4647",
+      "purpose": "Tile",
+      "height": "107",
+      "width": "107",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 3948
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.4372.9007199266246184.7b7dea7e-e480-4008-b420-a807cc23c9cf.107859f6-ade9-4855-932f-1c5006e7384f",
+      "purpose": "Tile",
+      "height": "142",
+      "width": "142",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 5726
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.30904.9007199266246184.7b7dea7e-e480-4008-b420-a807cc23c9cf.0408eae8-6b9c-4839-906d-05bb2bdd3e97",
+      "purpose": "Tile",
+      "height": "150",
+      "width": "310",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 3694
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.57160.9007199266246184.7b7dea7e-e480-4008-b420-a807cc23c9cf.d3cac13d-6b8e-4fca-8a9c-28f9c69812c2",
+      "purpose": "Tile",
+      "height": "225",
+      "width": "465",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 6765
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.43128.9007199266246184.7b7dea7e-e480-4008-b420-a807cc23c9cf.718576df-0919-423f-b872-245522905bfc",
+      "purpose": "Tile",
+      "height": "300",
+      "width": "620",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 9508
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.30583.9007199266246184.891177b9-b559-4ad7-a4f6-17a3a1da3a7e.89cb2dc0-007a-4e12-9b59-a65e96fbb2c4",
+      "purpose": "Screenshot",
+      "height": "975",
+      "width": "1071",
+      "caption": "Home page",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 126363
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.47103.9007199266246184.891177b9-b559-4ad7-a4f6-17a3a1da3a7e.68eec235-16d2-43a7-97d1-31c4a9d2607c",
+      "purpose": "Screenshot",
+      "height": "975",
+      "width": "1071",
+      "caption": "Apps page",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 394941
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.43928.9007199266246184.891177b9-b559-4ad7-a4f6-17a3a1da3a7e.ee1f6b81-d8b3-43eb-88e3-7ab34489d1fe",
+      "purpose": "Screenshot",
+      "height": "975",
+      "width": "1071",
+      "caption": "App details page",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 114230
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.32515.9007199266246184.891177b9-b559-4ad7-a4f6-17a3a1da3a7e.2f865a47-307d-4e84-912b-a3c396a12b0c",
+      "purpose": "Screenshot",
+      "height": "975",
+      "width": "1071",
+      "caption": "Device details page",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 112652
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.55290.9007199266246184.891177b9-b559-4ad7-a4f6-17a3a1da3a7e.48522b5e-47dd-4350-a0df-990e2afe188a",
+      "purpose": "Screenshot",
+      "height": "1280",
+      "width": "720",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 59047
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.28257.9007199266246184.891177b9-b559-4ad7-a4f6-17a3a1da3a7e.3cbb7a95-5da2-4c0a-aec0-c8a8979327af",
+      "purpose": "Screenshot",
+      "height": "1280",
+      "width": "720",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 42256
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.24912.9007199266246184.891177b9-b559-4ad7-a4f6-17a3a1da3a7e.58927314-7bad-4828-9c03-8563ffb2c16e",
+      "purpose": "Screenshot",
+      "height": "1280",
+      "width": "720",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 69924
+    },
+    {
+      "location": "//store-images.s-microsoft.com/image/apps.56348.9007199266246184.891177b9-b559-4ad7-a4f6-17a3a1da3a7e.2385af51-781e-4f44-a710-70e8dc3a6891",
+      "purpose": "Screenshot",
+      "height": "1280",
+      "width": "720",
+      "caption": "",
+      "backgroundColor": "#0377d6",
+      "foregroundColor": "",
+      "fileSize": 64684
+    }
+  ],
+  "publisher": {
+    "publisherName": "Microsoft Corporation",
+    "publisherWebsite": "http://go.microsoft.com/fwlink/?LinkId=273865"
+  }
+}
