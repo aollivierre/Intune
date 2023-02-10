@@ -1,0 +1,1 @@
+powershell.exe "& '%~dp0uninstall.ps1'"

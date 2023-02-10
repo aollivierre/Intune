@@ -1,0 +1,7 @@
+1- do use sysnative or system32 in the install/uninstall commands of Power Shell ?
+2- should we use sysnative all of the time or only in specific cases?
+3- we should be using custom detection scripts instead of rules because they are advanced and cover a wider area of cases
+4- should we be using exit or no exit in detection scripts ?
+5- should we be using write-host or write-output in detetion scripts ?
+6- is it better to use PSADT during W32 app deployment or just native exe/msi with some power shell scripts in the install/uninstall section ?
+7- should we always include requirement scripts to check for scripts ?

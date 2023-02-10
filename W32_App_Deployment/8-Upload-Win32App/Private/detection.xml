@@ -1,0 +1,15 @@
+<ApplicationInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ToolVersion="1.8.4.0">
+  <Name>AgentSetup_FGC_Corporate.exe</Name>
+  <UnencryptedContentSize>10468257</UnencryptedContentSize>
+  <FileName>IntunePackage.intunewin</FileName>
+  <SetupFile>AgentSetup_FGC_Corporate.exe</SetupFile>
+  <EncryptionInfo>
+    <EncryptionKey>hPhTZvY6EZwo6kpzhurcDM6X/7ueuDvS4XDwTRgAoo0=</EncryptionKey>
+    <MacKey>Coc4JnXu8WVVpdKxLIvGa1onUJMxMY3758i24lXKVxk=</MacKey>
+    <InitializationVector>0YEYUfH0411ipYQKPGr2Uw==</InitializationVector>
+    <Mac>va7g0L5OZGdL59xSnDZ5OUJQNgSY4YxntrJNkph4dKU=</Mac>
+    <ProfileIdentifier>ProfileVersion1</ProfileIdentifier>
+    <FileDigest>LqbmCUvJxHK0GyxUprbIMdzgCLdPT9cW0oiBq2QRiyw=</FileDigest>
+    <FileDigestAlgorithm>SHA256</FileDigestAlgorithm>
+  </EncryptionInfo>
+</ApplicationInfo>
