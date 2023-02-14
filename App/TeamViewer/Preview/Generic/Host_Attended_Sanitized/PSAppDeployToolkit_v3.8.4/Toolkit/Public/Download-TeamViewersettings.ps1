@@ -1,0 +1,103 @@
+<#
+.SYNOPSIS
+    A short one-line action-based description, e.g. 'Tests if a function is valid'
+.DESCRIPTION
+    A longer description of the function, its purpose, common use cases, etc.
+.NOTES
+    Information or caveats about the function e.g. 'This function is not supported in Linux'
+.LINK
+    Specify a URI to a help page, this will show when Get-Help -Online is used.
+.EXAMPLE
+    Test-MyTestFunction -Verbose
+    Explanation of the function or its result. You can include multiple examples with additional .EXAMPLE lines
+#>
+
+
+$ErrorActionPreference = "SilentlyContinue"
+# Set ScripRoot variable to the path which the script is executed from
+$Download_TeamViewersettings_ScriptRoot_1 = $null
+$Download_TeamViewersettings_ScriptRoot_1 = if ($PSVersionTable.PSVersion.Major -lt 3) {
+    Split-Path -Path $MyInvocation.MyCommand.Path
+}
+else {
+    $PSScriptRoot
+}
+
+
+
+function Download-TeamViewersettings {
+    [CmdletBinding()]
+    param (
+    
+    # Specifies a path to one or more locations. Unlike the Path parameter, the value of the LiteralPath parameter is
+    # used exactly as it is typed. No characters are interpreted as wildcards. If the path includes escape characters,
+    # enclose it in single quotation marks. Single quotation marks tell Windows PowerShell not to interpret any
+    # characters as escape sequences.
+    # [Parameter(Mandatory=$true,
+    #            Position=0,
+      
+    #            ValueFromPipelineByPropertyName=$true,
+    #            HelpMessage="Literal path to one or more locations.")]
+
+    # [ValidateNotNullOrEmpty()]
+    # [string[]]
+    # $LiteralPath
+
+    )
+    
+    begin {
+
+
+        $004_TeamViewerSettings = Get-AzKeyVaultSecret -VaultName "AKV001-TeamViewer" -Name "004-TeamViewerSettings" -AsPlainText
+        
+    }
+    
+    process {
+
+        try {
+
+
+            Set-Content -Path $Download_TeamViewersettings_ScriptRoot_1\settings\teamviewer_settings_export-v3.tvopt -Value "$004_TeamViewerSettings"
+            
+        }
+        catch [Exception] {
+        
+            Write-Host "A Terminating Error (Exception) happened" -ForegroundColor Magenta
+            Write-Host "Displaying the Catch Statement ErrorCode" -ForegroundColor Yellow
+            # Write-Host $PSItem -ForegroundColor Red
+            $PSItem
+            Write-Host $PSItem.ScriptStackTrace -ForegroundColor Red
+                    
+                    
+            $ErrorMessage_3 = $_.Exception.Message
+            write-host $ErrorMessage_3  -ForegroundColor Red
+            Write-Output "Ran into an issue: $PSItem"
+            Write-host "Ran into an issue: $PSItem" -ForegroundColor Red
+            throw "Ran into an issue: $PSItem"
+            throw "I am the catch"
+            throw "Ran into an issue: $PSItem"
+            $PSItem | Write-host -ForegroundColor
+            $PSItem | Select-Object *
+            $PSCmdlet.ThrowTerminatingError($PSitem)
+            throw
+            throw "Something went wrong"
+            Write-Log $PSItem.ToString()
+            $PSCmdlet.WriteError($_)
+                
+
+
+        }
+        finally {
+            <#Do this after the try block regardless of whether an exception occurred or not#>
+        }
+        
+    }
+    
+    end {
+        
+    }
+}
+
+
+
+# Download-TeamViewersettings

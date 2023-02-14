@@ -1,0 +1,40 @@
+// eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjJaUXBKM1VwYmpBWVhZR2FYRUpsOGxWMFRPSSIsImtpZCI6IjJaUXBKM1VwYmpBWVhZR2FYRUpsOGxWMFRPSSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuY29yZS53aW
+//             5kb3dzLm5ldC8iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9kYzMyMjdhNC01M2JhLTQ4ZjEtYjU0Yi04OTkzNmNkNWNhNTMvIiwiaWF0IjoxNjYxMTE4OTU1LCJuYmYiOjE2NjExMTg5NTUsImV4cCI6MTY2MTEyMjg1NSwiY
+//             WlvIjoiRTJaZ1lMRHcyTlcrN0lUQXRidUwzdDU2MlBCQkZ3QT0iLCJhcHBpZCI6IjRkODBhZDQxLWIwMmItNDQ2NS05ZTYwLWE4M2UyNGZjZDY0ZiIsImFwcGlkYWNyIjoiMiIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2Rj
+//             MzIyN2E0LTUzYmEtNDhmMS1iNTRiLTg5OTM2Y2Q1Y2E1My8iLCJpZHR5cCI6ImFwcCIsIm9pZCI6ImE2NDI4OWNjLWQ3ZTctNDAxOC1hOGUzLTZiNjAzNmFlNTRjZSIsInJoIjoiMC5BUmNBcENjeTNMcFQ4VWkxUzRtVGJOWEtVMFpJZjN
+//             rQXV0ZFB1a1Bhd2ZqMk1CTVhBQUEuIiwic3ViIjoiYTY0Mjg5Y2MtZDdlNy00MDE4LWE4ZTMtNmI2MDM2YWU1NGNlIiwidGlkIjoiZGMzMjI3YTQtNTNiYS00OGYxLWI1NGItODk5MzZjZDVjYTUzIiwidXRpIjoiLS14M2NvSEIwVUtXZT
+//             VaZF9nQXdBQSIsInZlciI6IjEuMCIsInhtc190Y2R0IjoxNDYyNTU1MTY4fQ.ZR4XOMj068B453LgqRTWbdz7SMzMACY0m6PbhSGtASFiGfKBorFhf9-p1As8K-n2Johb5-yFv6_FnP1gzwaYL1Ml0uFfUJtUkJ7_dRramTX-9CpTrNtmZ0
+//             xVi7WC8uZf7Gz0_M5Aplt8Oi6EeomiY7cQdjbkvsLdbGDPAcNlOZSlYRZNBss6LGpic1dq3lm68Yy1jaPpObaKDguIvBXQQZU-Mh7AvCqGwpB57WkuUVTDJ3_UGDwiyb377khW1JsI0AOm5ErhPqj_O2Jq8IvUkU_oEw3kFnFr4utF1fze1
+//             fFD-XHkRDEtpVtXLaGhz7B2zI7nvv-ttGthrW8oCsUsZA
+
+
+
+
+
+            HEADER
+            {
+    "typ": "JWT",
+    "alg": "RS256",
+    "x5t": "2ZQpJ3UpbjAYXYGaXEJl8lV0TOI",
+    "kid": "2ZQpJ3UpbjAYXYGaXEJl8lV0TOI"
+}
+            PAYLOAD
+            {
+    "aud": "https://management.core.windows.net/",
+    "iss": "https://sts.windows.net/dc3227a4-53ba-48f1-b54b-89936cd5ca53/",
+    "iat": 1661118955,
+    "nbf": 1661118955,
+    "exp": 1661122855,
+    "aio": "E2ZgYLDw2NW+7ITAtbuL3t562PBBFwA=",
+    "appid": "4d80ad41-b02b-4465-9e60-a83e24fcd64f",
+    "appidacr": "2",
+    "idp": "https://sts.windows.net/dc3227a4-53ba-48f1-b54b-89936cd5ca53/",
+    "idtyp": "app",
+    "oid": "a64289cc-d7e7-4018-a8e3-6b6036ae54ce",
+    "rh": "0.ARcApCcy3LpT8Ui1S4mTbNXKU0ZIf3kAutdPukPawfj2MBMXAAA.",
+    "sub": "a64289cc-d7e7-4018-a8e3-6b6036ae54ce",
+    "tid": "dc3227a4-53ba-48f1-b54b-89936cd5ca53",
+    "uti": "--x3coHB0UKWe5Zd_gAwAA",
+    "ver": "1.0",
+    "xms_tcdt": 1462555168
+}

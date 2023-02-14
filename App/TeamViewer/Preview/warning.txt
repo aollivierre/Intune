@@ -1,0 +1,33 @@
+
+Security warning
+Run only scripts that you trust. While scripts from the internet can be useful, this script can potentially harm your computer. If you trust this script, use the Unblock-File cmdlet to allow the script to 
+run without this warning message. Do you want to run C:\Users\dattormm02user\Downloads\PSAppDeployToolkit_v3.8.4\PSAppDeployToolkit_v3.8.4\Toolkit\Deploy-Application.ps1?
+[D] Do not run  [R] Run once  [S] Suspend  [?] Help (default is "D"): 
+
+
+Security warning
+Run only scripts that you trust. While scripts from the internet can be useful, this script can potentially harm your computer. If you trust this script, use the Unblock-File cmdlet to allow the script to 
+run without this warning message. Do you want to run C:\Users\dattormm02user\Downloads\PSAppDeployToolkit_v3.8.4\PSAppDeployToolkit_v3.8.4\Toolkit\AppDeployToolkit\AppDeployToolkitMain.ps1?
+[D] Do not run  [R] Run once  [S] Suspend  [?] Help (default is "D"): 
+
+
+Security warning
+Run only scripts that you trust. While scripts from the internet can be useful, this script can potentially harm your computer. If you trust this script, use the Unblock-File cmdlet to allow the script to    
+run without this warning message. Do you want to run C:\Users\dattormm02user\Downloads\PSAppDeployToolkit_v3.8.4\PSAppDeployToolkit_v3.8.4\Toolkit\AppDeployToolkit\AppDeployToolkitExtensions.ps1?
+[D] Do not run  [R] Run once  [S] Suspend  [?] Help (default is "D"):
+
+
+
+Security warning
+Run only scripts that you trust. While scripts from the internet can be useful, this script can potentially harm your computer. If you trust this script, use the Unblock-File cmdlet to allow the script to    
+run without this warning message. Do you want to run C:\Users\dattormm02user\Downloads\PSAppDeployToolkit_v3.8.4\PSAppDeployToolkit_v3.8.4\Toolkit\Public\0.1.1-Download-TeamViewer.ps1?
+
+
+Security warning
+Run only scripts that you trust. While scripts from the internet can be useful, this script can potentially harm your computer. If you trust this script, use the Unblock-File cmdlet to allow the script to    
+run without this warning message. Do you want to run C:\Users\dattormm02user\Downloads\PSAppDeployToolkit_v3.8.4\PSAppDeployToolkit_v3.8.4\Toolkit\Public\Add-StartupApp.ps1?
+
+
+Security warning
+Run only scripts that you trust. While scripts from the internet can be useful, this script can potentially harm your computer. If you trust this script, use the Unblock-File cmdlet to allow the script to    
+run without this warning message. Do you want to run C:\Users\dattormm02user\Downloads\PSAppDeployToolkit_v3.8.4\PSAppDeployToolkit_v3.8.4\Toolkit\Public\Set-HighPerfPowerPlan.ps1?

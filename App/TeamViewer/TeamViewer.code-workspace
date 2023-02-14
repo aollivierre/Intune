@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../cci"
+		},
+		{
+			"path": "../../Users/dattormm02user/Downloads/Toolkit/Toolkit"
+		},
+		{
+			"path": "../../Program Files/WindowsPowerShell/Modules"
+		}
+	],
+	"settings": {
+		"powershell.cwd": "c:\\code\\TeamViewer"
+	}
+}
