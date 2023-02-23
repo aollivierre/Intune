@@ -201,7 +201,7 @@ Try {
 		$CUSTOMCONFIG_ID_1 = 'he26pyq'
 
 		$API_TOKEN_1 = $null
-		$API_TOKEN_1 = '7757967-7qRfr5r4Voq9MRxS7UKZ'
+		$API_TOKEN_1 = 'ENTER YOUR API KEY HERE'
 
 		
 		$options_1 = @(

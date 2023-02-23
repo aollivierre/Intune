@@ -203,7 +203,7 @@ Try {
 
 
         $License_Key = $null
-        $License_Key = "USC4EB7A86297D986ABBE418C600825F64"
+        $License_Key = "ENTER YOUR LICENSE KEY HERE"
 
 
         $Components_Args = $null
@@ -219,12 +219,6 @@ Try {
             "/ComponentArgs"
             "ComponentArgs=$Components_Args"
             "LICENSEKEY=$License_Key"
-            # "APITOKEN=$API_TOKEN_1"
-            # 'ASSIGNMENTOPTIONS="--grant-easy-access"'
-            # # 'ASSIGNMENTOPTIONS="--reassign"'
-            # # 'ASSIGNMENTOPTIONS="--group-id=""g176322730"""' ##!Change this - This group ID belongs to a group call Venus   
-            # 'ASSIGNMENTOPTIONS="--group-id=""g269785848"""' ##!Change this - This group ID belongs to a group call neptune   
-            # "SETTINGSFILE=$installteamviewersettingsfilepath"
         )
 
         $cmdArgs_1 = @(
@@ -251,11 +245,11 @@ Try {
         # Execute-Process "c:\code\KnowBe4\PhishAlertButtonSetup.exe" $cmdArgs_1
 
         # Execute-Process -Path 'PhishAlertButtonSetup.exe' -Parameters "/s /v`"ALLUSERS=1 /qn /L* \`"$configToolkitLogDir\$installName.log`"`""
-        # Execute-Process -Path 'PhishAlertButtonSetup.exe' -Parameters "/q /ComponentArgs "KnowBe4 Phish Alert Button":"LICENSEKEY=USC4EB7A86297D986ABBE418C600825F64""""
+        # Execute-Process -Path 'PhishAlertButtonSetup.exe' -Parameters "/q /ComponentArgs "KnowBe4 Phish Alert Button":"LICENSEKEY=ENTER YOUR LICENSE KEY HERE""""
         Execute-Process -Path 'PhishAlertButtonSetup.exe' -Parameters "$cmdArgs_1"
         
 
-        # & "c:\code\KnowBe4\PhishAlertButtonSetup.exe" /q /ComponentArgs "KnowBe4 Phish Alert Button":"LICENSEKEY=USC4EB7A86297D986ABBE418C600825F64""
+        # & "c:\code\KnowBe4\PhishAlertButtonSetup.exe" /q /ComponentArgs "KnowBe4 Phish Alert Button":"LICENSEKEY=ENTER YOUR LICENSE KEY HERE""
 
 
         # & "c:\code\KnowBe4\PhishAlertButtonSetup.exe" /q /ComponentArgs "KnowBe4 Phish Alert Button":"LICENSEKEY=MyLicenseKeyValue""
