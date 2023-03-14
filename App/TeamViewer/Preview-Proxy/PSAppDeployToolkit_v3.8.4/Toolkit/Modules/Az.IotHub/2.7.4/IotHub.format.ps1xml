@@ -1,0 +1,1482 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+  <ViewDefinitions>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSCertificate
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSCertificate</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader>
+          </TableColumnHeader>
+          <TableColumnHeader>
+          </TableColumnHeader>
+          <TableColumnHeader>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Status</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Expiry</Label>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <Wrap/>
+            <TableColumnItems>
+              <TableColumnItem>
+                <PropertyName>ResourceGroupName</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>Name</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>CertificateName</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>if($_.Properties.IsVerified) { "Verified" } else { "Unverified" }</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.Properties.Expiry.ToLocalTime().toString("M/dd/yyyy HH:MM")</ScriptBlock>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSCertificateDescription
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSCertificateDescription</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem>
+                <PropertyName>Id</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>ResourceGroupName</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>Name</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>CertificateName</PropertyName>
+              </ListItem>
+              <ListItem>
+                <Label>Subject</Label>
+                <ScriptBlock>$_.Properties.Subject</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Thumbprint</Label>
+                <ScriptBlock>$_.Properties.Thumbprint</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Status</Label>
+                <ScriptBlock>if($_.Properties.IsVerified) { "Verified" } else { "Unverified" }</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Expiry</Label>
+                <ScriptBlock>$_.Properties.Expiry.ToLocalTime().toString("M/dd/yyyy HH:MM")</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Created</Label>
+                <ScriptBlock>$_.Properties.Created.ToLocalTime().toString("M/dd/yyyy HH:MM")</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <PropertyName>Etag</PropertyName>
+              </ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSCertificateWithNonceDescription
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSCertificateWithNonceDescription</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem>
+                <PropertyName>Id</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>ResourceGroupName</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>Name</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>CertificateName</PropertyName>
+              </ListItem>
+              <ListItem>
+                <Label>Subject</Label>
+                <ScriptBlock>$_.Properties.Subject</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Thumbprint</Label>
+                <ScriptBlock>$_.Properties.Thumbprint</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>VerificationCode</Label>
+                <ScriptBlock>$_.Properties.VerificationCode</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Status</Label>
+                <ScriptBlock>if($_.Properties.IsVerified) { "Verified" } else { "Unverified" }</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Expiry</Label>
+                <ScriptBlock>$_.Properties.Expiry.ToLocalTime().toString("M/dd/yyyy HH:MM")</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Created</Label>
+                <ScriptBlock>$_.Properties.Created.ToLocalTime().toString("M/dd/yyyy HH:MM")</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <PropertyName>Etag</PropertyName>
+              </ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSRoutingEventHubProperties
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSRoutingEventHubProperties</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader>
+            <Label>ResourceGroupName</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>EndpointName</Label>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <Wrap/>
+            <TableColumnItems>
+              <TableColumnItem>
+                <ScriptBlock>$_.ResourceGroup</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>SubscriptionId</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.Name</ScriptBlock>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSRoutingServiceBusQueueEndpointProperties
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSRoutingServiceBusQueueEndpointProperties</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader>
+            <Label>ResourceGroupName</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>EndpointName</Label>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <Wrap/>
+            <TableColumnItems>
+              <TableColumnItem>
+                <ScriptBlock>$_.ResourceGroup</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>SubscriptionId</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.Name</ScriptBlock>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSRoutingServiceBusTopicEndpointProperties
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSRoutingServiceBusTopicEndpointProperties</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader>
+            <Label>ResourceGroupName</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>EndpointName</Label>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <Wrap/>
+            <TableColumnItems>
+              <TableColumnItem>
+                <ScriptBlock>$_.ResourceGroup</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>SubscriptionId</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.Name</ScriptBlock>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSRoutingStorageContainerProperties
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSRoutingStorageContainerProperties</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader>
+            <Label>ResourceGroupName</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>EndpointName</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <Wrap/>
+            <TableColumnItems>
+              <TableColumnItem>
+                <ScriptBlock>$_.ResourceGroup</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>SubscriptionId</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.Name</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>ContainerName</PropertyName>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSRoutingCustomEndpoint
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSRoutingCustomEndpoint</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader>
+          </TableColumnHeader>
+          <TableColumnHeader>
+          </TableColumnHeader>
+          <TableColumnHeader>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <Wrap/>
+            <TableColumnItems>
+              <TableColumnItem>
+                <PropertyName>Name</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>EndpointType</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>AzureResource</PropertyName>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSRoutingEventHubEndpoint
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSRoutingEventHubEndpoint</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem>
+                <Label>ResourceGroupName</Label>
+                <ScriptBlock>$_.ResourceGroup</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <PropertyName>SubscriptionId</PropertyName>
+              </ListItem>
+              <ListItem>
+                <Label>EndpointName</Label>
+                <ScriptBlock>$_.Name</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <PropertyName>ConnectionString</PropertyName>
+              </ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSRoutingServiceBusQueueEndpoint
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSRoutingServiceBusQueueEndpoint</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem>
+                <Label>ResourceGroupName</Label>
+                <ScriptBlock>$_.ResourceGroup</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <PropertyName>SubscriptionId</PropertyName>
+              </ListItem>
+              <ListItem>
+                <Label>EndpointName</Label>
+                <ScriptBlock>$_.Name</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <PropertyName>ConnectionString</PropertyName>
+              </ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSRoutingServiceBusTopicEndpoint
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSRoutingServiceBusTopicEndpoint</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem>
+                <Label>ResourceGroupName</Label>
+                <ScriptBlock>$_.ResourceGroup</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <PropertyName>SubscriptionId</PropertyName>
+              </ListItem>
+              <ListItem>
+                <Label>EndpointName</Label>
+                <ScriptBlock>$_.Name</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <PropertyName>ConnectionString</PropertyName>
+              </ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSRoutingStorageContainerEndpoint
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSRoutingStorageContainerEndpoint</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem>
+                <Label>ResourceGroupName</Label>
+                <ScriptBlock>$_.ResourceGroup</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <PropertyName>SubscriptionId</PropertyName>
+              </ListItem>
+              <ListItem>
+                <Label>EndpointName</Label>
+                <ScriptBlock>$_.Name</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <PropertyName>ContainerName</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>ConnectionString</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>FileNameFormat</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>BatchFrequencyInSeconds</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>MaxChunkSizeInBytes</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>Encoding</PropertyName>
+              </ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSRouteMetadata
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSRouteMetadata</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem>
+                <Label>RouteName</Label>
+                <ScriptBlock>$_.Name</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>DataSource</Label>
+                <ScriptBlock>$_.Source</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>EndpointNames</Label>
+                <ScriptBlock>$_.EndpointNames</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <PropertyName>Condition</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>IsEnabled</PropertyName>
+              </ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSRouteProperties
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSRouteProperties</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader>
+            <Label>RouteName</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>DataSource</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>EndpointNames</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <Wrap/>
+            <TableColumnItems>
+              <TableColumnItem>
+                <ScriptBlock>$_.Name</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.Source</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.EndpointNames</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>IsEnabled</PropertyName>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSTestRouteResult
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSTestRouteResult</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem>
+                <Label>Result</Label>
+                <ScriptBlock>if($_.Result) { $_.Result } else { "Error" }</ScriptBlock>
+              </ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSRouteCompilationError
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSRouteCompilationError</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader>
+            <Label>ErrorMessage</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>LocationStartLine</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>LocationStartColumn</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>LocationEndLine</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>LocationEndColumn</Label>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <Wrap/>
+            <TableColumnItems>
+              <TableColumnItem>
+                <ScriptBlock>$_.Message</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>Severity</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.Location.Start.Line</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.Location.Start.Column</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.Location.End.Line</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.Location.End.Column</ScriptBlock>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSEnrichmentMetadata
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSEnrichmentMetadata</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem>
+                <Label>Key</Label>
+                <ScriptBlock>$_.Key</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Value</Label>
+                <ScriptBlock>$_.Value</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Endpoint(s)</Label>
+                <ScriptBlock>$_.EndpointNames</ScriptBlock>
+              </ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSEnrichmentProperties
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSEnrichmentProperties</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader>
+            <Label>Key</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Value</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Endpoint(s)</Label>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <Wrap/>
+            <TableColumnItems>
+              <TableColumnItem>
+                <ScriptBlock>$_.Key</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.Value</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.EndpointNames</ScriptBlock>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSDevice
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSDevice</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem>
+                <Label>DeviceId</Label>
+                <ScriptBlock>$_.Id</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <PropertyName>GenerationId</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>ETag</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>LastActivityTime</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>ConnectionState</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>ConnectionStateUpdatedTime</PropertyName>
+              </ListItem>
+              <ListItem>
+                <Label>Status</Label>
+                <ScriptBlock>$_.Status</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <PropertyName>StatusReason</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>StatusUpdatedTime</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>CloudToDeviceMessageCount</PropertyName>
+              </ListItem>
+              <ListItem>
+                <Label>Authentication</Label>
+                <ScriptBlock>$_.Authentication.Type</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>EdgeEnabled</Label>
+                <ScriptBlock>$_.Capabilities.IotEdge</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>DeviceScope</Label>
+                <ScriptBlock>$_.Scope</ScriptBlock>
+              </ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSDevices
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSDevices</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader>
+            <Label>Device Id</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Status</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Connection State</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Authentication</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Edge Enabled</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Last Activity Time</Label>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <Wrap/>
+            <TableColumnItems>
+              <TableColumnItem>
+                <ScriptBlock>$_.Id</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.Status</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.ConnectionState</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.Authentication.Type</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.Capabilities.IotEdge</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.LastActivityTime</ScriptBlock>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSModule
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSModule</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem>
+                <Label>ModuleId</Label>
+                <ScriptBlock>$_.Id</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <PropertyName>DeviceId</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>GenerationId</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>ETag</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>LastActivityTime</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>ConnectionState</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>ConnectionStateUpdatedTime</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>CloudToDeviceMessageCount</PropertyName>
+              </ListItem>
+              <ListItem>
+                <Label>Authentication</Label>
+                <ScriptBlock>$_.Authentication.Type</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <PropertyName>ManagedBy</PropertyName>
+              </ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSModules
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSModules</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader>
+            <Label>Module Id</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Device Id</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Connection State</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Authentication</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Last Activity Time</Label>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <Wrap/>
+            <TableColumnItems>
+              <TableColumnItem>
+                <ScriptBlock>$_.Id</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.DeviceId</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.ConnectionState</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.Authentication.Type</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.LastActivityTime</ScriptBlock>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSDeviceTracing
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSDeviceTracing</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem>
+                <PropertyName>DeviceId</PropertyName>
+              </ListItem>
+              <ListItem>
+                <Label>Sampling Mode</Label>
+                <ScriptBlock>$_.TracingOption.SamplingMode</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Sampling Rate</Label>
+                <ScriptBlock>if($_.TracingOption.SamplingMode.value__ -eq 1) { "$($_.TracingOption.SamplingRate)%" } else { "" }</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <PropertyName>IsSynced</PropertyName>
+              </ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSDeviceTwin
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSDeviceTwin</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem>
+                <PropertyName>DeviceId</PropertyName>
+              </ListItem>
+              <ListItem>
+                <Label>Tags</Label>
+                <ScriptBlock>$_.Tags</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Desired</Label>
+                <ScriptBlock>$_.Properties.Desired</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Reported</Label>
+                <ScriptBlock>$_.Properties.Reported</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <PropertyName>ETag</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>Version</PropertyName>
+              </ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSCloudToDeviceMethodResult
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSCloudToDeviceMethodResult</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem>
+                <PropertyName>Status</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>Payload</PropertyName>
+              </ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSModuleTwin
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSModuleTwin</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem>
+                <PropertyName>ModuleId</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>DeviceId</PropertyName>
+              </ListItem>
+              <ListItem>
+                <Label>Tags</Label>
+                <ScriptBlock>$_.Tags</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Desired</Label>
+                <ScriptBlock>$_.Properties.Desired</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Reported</Label>
+                <ScriptBlock>$_.Properties.Reported</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <PropertyName>ETag</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>Version</PropertyName>
+              </ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSConfiguration
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSConfiguration</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem>
+                <Label>Configuration Id</Label>
+                <ScriptBlock>$_.Id</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Schema Version</Label>
+                <ScriptBlock>$_.SchemaVersion</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Content Type</Label>
+                <ScriptBlock>$_.ContentType</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <PropertyName>Priority</PropertyName>
+              </ListItem>
+              <ListItem>
+                <Label>Target Condition</Label>
+                <ScriptBlock>$_.TargetCondition</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Labels</Label>
+                <ScriptBlock>$_.Labels</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>System Metrics</Label>
+                <ScriptBlock>$_.SystemMetrics</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Custom Metrics</Label>
+                <ScriptBlock>$_.Metrics</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Device Content</Label>
+                <ScriptBlock>$_.Content.DeviceContent</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Created Time</Label>
+                <ScriptBlock>$_.CreatedTimeUtc.ToLocalTime().toString("M/dd/yyyy HH:MM")</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Last Activity Time</Label>
+                <ScriptBlock>$_.LastUpdatedTimeUtc.ToLocalTime().toString("M/dd/yyyy HH:MM")</ScriptBlock>
+              </ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSConfigurations
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSConfigurations</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader>
+            <Label>Configuration Id</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Configuration Type</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Priority</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>System Metrics</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Last Activity Time</Label>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <Wrap/>
+            <TableColumnItems>
+              <TableColumnItem>
+                <ScriptBlock>$_.Id</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>if($_.Content.DeviceContent) { "Device Twin Configuration" } else { "None" }</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.Priority</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>
+                  $_.SystemMetrics.Results["targetedCount"].ToString() + " Targeted"
+                  $_.SystemMetrics.Results["appliedCount"].ToString() + " Applied"
+                </ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.LastUpdatedTimeUtc.ToLocalTime().toString("M/dd/yyyy HH:MM")</ScriptBlock>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSConfigurationMetricsResult
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSConfigurationMetricsResult</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem>
+                <Label>Metric</Label>
+                <ScriptBlock>$_.Name</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Criteria</Label>
+                <ScriptBlock>$_.Criteria</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Result</Label>
+                <ScriptBlock>$_.Result</ScriptBlock>
+              </ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSDeployment
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSDeployment</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem>
+                <Label>Deployment Id</Label>
+                <ScriptBlock>$_.Id</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Schema Version</Label>
+                <ScriptBlock>$_.SchemaVersion</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Content Type</Label>
+                <ScriptBlock>$_.ContentType</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <PropertyName>Priority</PropertyName>
+              </ListItem>
+              <ListItem>
+                <Label>Target Condition</Label>
+                <ScriptBlock>$_.TargetCondition</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Labels</Label>
+                <ScriptBlock>$_.Labels</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>System Metrics</Label>
+                <ScriptBlock>$_.SystemMetrics</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Custom Metrics</Label>
+                <ScriptBlock>$_.Metrics</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Content</Label>
+                <ScriptBlock>$_.Content.ModulesContent</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Created Time</Label>
+                <ScriptBlock>$_.CreatedTimeUtc.ToLocalTime().toString("M/dd/yyyy HH:MM")</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Last Activity Time</Label>
+                <ScriptBlock>$_.LastUpdatedTimeUtc.ToLocalTime().toString("M/dd/yyyy HH:MM")</ScriptBlock>
+              </ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+    <View>
+      <Name>
+        Microsoft.Azure.Commands.Management.IotHub.Models.PSDeployments
+      </Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.Azure.Commands.Management.IotHub.Models.PSDeployments</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader>
+            <Label>Id</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Type</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Priority</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>System Metrics</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Device Metrics</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Last Activity Time</Label>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <Wrap/>
+            <TableColumnItems>
+              <TableColumnItem>
+                <ScriptBlock>$_.Id</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>if($_.Content.ModulesContent) { "Deployment" } else { "None" }</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.Priority</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>
+                  $_.SystemMetrics.Results["targetedCount"].ToString() + " Targeted" 
+                  $_.SystemMetrics.Results["appliedCount"].ToString() + " Applied"
+                </ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>
+                  $_.SystemMetrics.Results["reportedSuccessfulCount"].ToString() + " Reporting Success"
+                  $_.SystemMetrics.Results["reportedFailedCount"].ToString() + " Reporting Failure"
+                </ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>$_.LastUpdatedTimeUtc.ToLocalTime().toString("M/dd/yyyy HH:MM")</ScriptBlock>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+  </ViewDefinitions>
+</Configuration>
+<!-- SIG # Begin signature block -->
+<!-- MIIjkQYJKoZIhvcNAQcCoIIjgjCCI34CAQExDzANBglghkgBZQMEAgEFADB5Bgor -->
+<!-- BgEEAYI3AgEEoGswaTA0BgorBgEEAYI3AgEeMCYCAwEAAAQQH8w7YFlLCE63JNLG -->
+<!-- KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCCEa/nJHSQPtan0 -->
+<!-- AZESqu546UDFoUyPrMXE/dw7TUOM5KCCDYEwggX/MIID56ADAgECAhMzAAAB32vw -->
+<!-- LpKnSrTQAAAAAAHfMA0GCSqGSIb3DQEBCwUAMH4xCzAJBgNVBAYTAlVTMRMwEQYD -->
+<!-- VQQIEwpXYXNoaW5ndG9uMRAwDgYDVQQHEwdSZWRtb25kMR4wHAYDVQQKExVNaWNy -->
+<!-- b3NvZnQgQ29ycG9yYXRpb24xKDAmBgNVBAMTH01pY3Jvc29mdCBDb2RlIFNpZ25p -->
+<!-- bmcgUENBIDIwMTEwHhcNMjAxMjE1MjEzMTQ1WhcNMjExMjAyMjEzMTQ1WjB0MQsw -->
+<!-- CQYDVQQGEwJVUzETMBEGA1UECBMKV2FzaGluZ3RvbjEQMA4GA1UEBxMHUmVkbW9u -->
+<!-- ZDEeMBwGA1UEChMVTWljcm9zb2Z0IENvcnBvcmF0aW9uMR4wHAYDVQQDExVNaWNy -->
+<!-- b3NvZnQgQ29ycG9yYXRpb24wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB -->
+<!-- AQC2uxlZEACjqfHkuFyoCwfL25ofI9DZWKt4wEj3JBQ48GPt1UsDv834CcoUUPMn -->
+<!-- s/6CtPoaQ4Thy/kbOOg/zJAnrJeiMQqRe2Lsdb/NSI2gXXX9lad1/yPUDOXo4GNw -->
+<!-- PjXq1JZi+HZV91bUr6ZjzePj1g+bepsqd/HC1XScj0fT3aAxLRykJSzExEBmU9eS -->
+<!-- yuOwUuq+CriudQtWGMdJU650v/KmzfM46Y6lo/MCnnpvz3zEL7PMdUdwqj/nYhGG -->
+<!-- 3UVILxX7tAdMbz7LN+6WOIpT1A41rwaoOVnv+8Ua94HwhjZmu1S73yeV7RZZNxoh -->
+<!-- EegJi9YYssXa7UZUUkCCA+KnAgMBAAGjggF+MIIBejAfBgNVHSUEGDAWBgorBgEE -->
+<!-- AYI3TAgBBggrBgEFBQcDAzAdBgNVHQ4EFgQUOPbML8IdkNGtCfMmVPtvI6VZ8+Mw -->
+<!-- UAYDVR0RBEkwR6RFMEMxKTAnBgNVBAsTIE1pY3Jvc29mdCBPcGVyYXRpb25zIFB1 -->
+<!-- ZXJ0byBSaWNvMRYwFAYDVQQFEw0yMzAwMTIrNDYzMDA5MB8GA1UdIwQYMBaAFEhu -->
+<!-- ZOVQBdOCqhc3NyK1bajKdQKVMFQGA1UdHwRNMEswSaBHoEWGQ2h0dHA6Ly93d3cu -->
+<!-- bWljcm9zb2Z0LmNvbS9wa2lvcHMvY3JsL01pY0NvZFNpZ1BDQTIwMTFfMjAxMS0w -->
+<!-- Ny0wOC5jcmwwYQYIKwYBBQUHAQEEVTBTMFEGCCsGAQUFBzAChkVodHRwOi8vd3d3 -->
+<!-- Lm1pY3Jvc29mdC5jb20vcGtpb3BzL2NlcnRzL01pY0NvZFNpZ1BDQTIwMTFfMjAx -->
+<!-- MS0wNy0wOC5jcnQwDAYDVR0TAQH/BAIwADANBgkqhkiG9w0BAQsFAAOCAgEAnnqH -->
+<!-- tDyYUFaVAkvAK0eqq6nhoL95SZQu3RnpZ7tdQ89QR3++7A+4hrr7V4xxmkB5BObS -->
+<!-- 0YK+MALE02atjwWgPdpYQ68WdLGroJZHkbZdgERG+7tETFl3aKF4KpoSaGOskZXp -->
+<!-- TPnCaMo2PXoAMVMGpsQEQswimZq3IQ3nRQfBlJ0PoMMcN/+Pks8ZTL1BoPYsJpok -->
+<!-- t6cql59q6CypZYIwgyJ892HpttybHKg1ZtQLUlSXccRMlugPgEcNZJagPEgPYni4 -->
+<!-- b11snjRAgf0dyQ0zI9aLXqTxWUU5pCIFiPT0b2wsxzRqCtyGqpkGM8P9GazO8eao -->
+<!-- mVItCYBcJSByBx/pS0cSYwBBHAZxJODUqxSXoSGDvmTfqUJXntnWkL4okok1FiCD -->
+<!-- Z4jpyXOQunb6egIXvkgQ7jb2uO26Ow0m8RwleDvhOMrnHsupiOPbozKroSa6paFt -->
+<!-- VSh89abUSooR8QdZciemmoFhcWkEwFg4spzvYNP4nIs193261WyTaRMZoceGun7G -->
+<!-- CT2Rl653uUj+F+g94c63AhzSq4khdL4HlFIP2ePv29smfUnHtGq6yYFDLnT0q/Y+ -->
+<!-- Di3jwloF8EWkkHRtSuXlFUbTmwr/lDDgbpZiKhLS7CBTDj32I0L5i532+uHczw82 -->
+<!-- oZDmYmYmIUSMbZOgS65h797rj5JJ6OkeEUJoAVwwggd6MIIFYqADAgECAgphDpDS -->
+<!-- AAAAAAADMA0GCSqGSIb3DQEBCwUAMIGIMQswCQYDVQQGEwJVUzETMBEGA1UECBMK -->
+<!-- V2FzaGluZ3RvbjEQMA4GA1UEBxMHUmVkbW9uZDEeMBwGA1UEChMVTWljcm9zb2Z0 -->
+<!-- IENvcnBvcmF0aW9uMTIwMAYDVQQDEylNaWNyb3NvZnQgUm9vdCBDZXJ0aWZpY2F0 -->
+<!-- ZSBBdXRob3JpdHkgMjAxMTAeFw0xMTA3MDgyMDU5MDlaFw0yNjA3MDgyMTA5MDla -->
+<!-- MH4xCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpXYXNoaW5ndG9uMRAwDgYDVQQHEwdS -->
+<!-- ZWRtb25kMR4wHAYDVQQKExVNaWNyb3NvZnQgQ29ycG9yYXRpb24xKDAmBgNVBAMT -->
+<!-- H01pY3Jvc29mdCBDb2RlIFNpZ25pbmcgUENBIDIwMTEwggIiMA0GCSqGSIb3DQEB -->
+<!-- AQUAA4ICDwAwggIKAoICAQCr8PpyEBwurdhuqoIQTTS68rZYIZ9CGypr6VpQqrgG -->
+<!-- OBoESbp/wwwe3TdrxhLYC/A4wpkGsMg51QEUMULTiQ15ZId+lGAkbK+eSZzpaF7S -->
+<!-- 35tTsgosw6/ZqSuuegmv15ZZymAaBelmdugyUiYSL+erCFDPs0S3XdjELgN1q2jz -->
+<!-- y23zOlyhFvRGuuA4ZKxuZDV4pqBjDy3TQJP4494HDdVceaVJKecNvqATd76UPe/7 -->
+<!-- 4ytaEB9NViiienLgEjq3SV7Y7e1DkYPZe7J7hhvZPrGMXeiJT4Qa8qEvWeSQOy2u -->
+<!-- M1jFtz7+MtOzAz2xsq+SOH7SnYAs9U5WkSE1JcM5bmR/U7qcD60ZI4TL9LoDho33 -->
+<!-- X/DQUr+MlIe8wCF0JV8YKLbMJyg4JZg5SjbPfLGSrhwjp6lm7GEfauEoSZ1fiOIl -->
+<!-- XdMhSz5SxLVXPyQD8NF6Wy/VI+NwXQ9RRnez+ADhvKwCgl/bwBWzvRvUVUvnOaEP -->
+<!-- 6SNJvBi4RHxF5MHDcnrgcuck379GmcXvwhxX24ON7E1JMKerjt/sW5+v/N2wZuLB -->
+<!-- l4F77dbtS+dJKacTKKanfWeA5opieF+yL4TXV5xcv3coKPHtbcMojyyPQDdPweGF -->
+<!-- RInECUzF1KVDL3SV9274eCBYLBNdYJWaPk8zhNqwiBfenk70lrC8RqBsmNLg1oiM -->
+<!-- CwIDAQABo4IB7TCCAekwEAYJKwYBBAGCNxUBBAMCAQAwHQYDVR0OBBYEFEhuZOVQ -->
+<!-- BdOCqhc3NyK1bajKdQKVMBkGCSsGAQQBgjcUAgQMHgoAUwB1AGIAQwBBMAsGA1Ud -->
+<!-- DwQEAwIBhjAPBgNVHRMBAf8EBTADAQH/MB8GA1UdIwQYMBaAFHItOgIxkEO5FAVO -->
+<!-- 4eqnxzHRI4k0MFoGA1UdHwRTMFEwT6BNoEuGSWh0dHA6Ly9jcmwubWljcm9zb2Z0 -->
+<!-- LmNvbS9wa2kvY3JsL3Byb2R1Y3RzL01pY1Jvb0NlckF1dDIwMTFfMjAxMV8wM18y -->
+<!-- Mi5jcmwwXgYIKwYBBQUHAQEEUjBQME4GCCsGAQUFBzAChkJodHRwOi8vd3d3Lm1p -->
+<!-- Y3Jvc29mdC5jb20vcGtpL2NlcnRzL01pY1Jvb0NlckF1dDIwMTFfMjAxMV8wM18y -->
+<!-- Mi5jcnQwgZ8GA1UdIASBlzCBlDCBkQYJKwYBBAGCNy4DMIGDMD8GCCsGAQUFBwIB -->
+<!-- FjNodHRwOi8vd3d3Lm1pY3Jvc29mdC5jb20vcGtpb3BzL2RvY3MvcHJpbWFyeWNw -->
+<!-- cy5odG0wQAYIKwYBBQUHAgIwNB4yIB0ATABlAGcAYQBsAF8AcABvAGwAaQBjAHkA -->
+<!-- XwBzAHQAYQB0AGUAbQBlAG4AdAAuIB0wDQYJKoZIhvcNAQELBQADggIBAGfyhqWY -->
+<!-- 4FR5Gi7T2HRnIpsLlhHhY5KZQpZ90nkMkMFlXy4sPvjDctFtg/6+P+gKyju/R6mj -->
+<!-- 82nbY78iNaWXXWWEkH2LRlBV2AySfNIaSxzzPEKLUtCw/WvjPgcuKZvmPRul1LUd -->
+<!-- d5Q54ulkyUQ9eHoj8xN9ppB0g430yyYCRirCihC7pKkFDJvtaPpoLpWgKj8qa1hJ -->
+<!-- Yx8JaW5amJbkg/TAj/NGK978O9C9Ne9uJa7lryft0N3zDq+ZKJeYTQ49C/IIidYf -->
+<!-- wzIY4vDFLc5bnrRJOQrGCsLGra7lstnbFYhRRVg4MnEnGn+x9Cf43iw6IGmYslmJ -->
+<!-- aG5vp7d0w0AFBqYBKig+gj8TTWYLwLNN9eGPfxxvFX1Fp3blQCplo8NdUmKGwx1j -->
+<!-- NpeG39rz+PIWoZon4c2ll9DuXWNB41sHnIc+BncG0QaxdR8UvmFhtfDcxhsEvt9B -->
+<!-- xw4o7t5lL+yX9qFcltgA1qFGvVnzl6UJS0gQmYAf0AApxbGbpT9Fdx41xtKiop96 -->
+<!-- eiL6SJUfq/tHI4D1nvi/a7dLl+LrdXga7Oo3mXkYS//WsyNodeav+vyL6wuA6mk7 -->
+<!-- r/ww7QRMjt/fdW1jkT3RnVZOT7+AVyKheBEyIXrvQQqxP/uozKRdwaGIm1dxVk5I -->
+<!-- RcBCyZt2WwqASGv9eZ/BvW1taslScxMNelDNMYIVZjCCFWICAQEwgZUwfjELMAkG -->
+<!-- A1UEBhMCVVMxEzARBgNVBAgTCldhc2hpbmd0b24xEDAOBgNVBAcTB1JlZG1vbmQx -->
+<!-- HjAcBgNVBAoTFU1pY3Jvc29mdCBDb3Jwb3JhdGlvbjEoMCYGA1UEAxMfTWljcm9z -->
+<!-- b2Z0IENvZGUgU2lnbmluZyBQQ0EgMjAxMQITMwAAAd9r8C6Sp0q00AAAAAAB3zAN -->
+<!-- BglghkgBZQMEAgEFAKCBrjAZBgkqhkiG9w0BCQMxDAYKKwYBBAGCNwIBBDAcBgor -->
+<!-- BgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAvBgkqhkiG9w0BCQQxIgQgFYNY8rS3 -->
+<!-- 1c4LpC286sPT/yoRhjfE/Ww1qkOpcZurJJMwQgYKKwYBBAGCNwIBDDE0MDKgFIAS -->
+<!-- AE0AaQBjAHIAbwBzAG8AZgB0oRqAGGh0dHA6Ly93d3cubWljcm9zb2Z0LmNvbTAN -->
+<!-- BgkqhkiG9w0BAQEFAASCAQAYljh9XHmEhnsyUrG7eZOf4AWZ9baIQG1qkHebmapo -->
+<!-- eJm5lKy17HDgf8H+vF26HQ0FqJiOefvtGqN0rfsy2+iv3VAX7un3rqfAr2wtrsc4 -->
+<!-- qzRkcRQKK75V/+6ttemUjv7CIRngsMN9S7bWdoOlQl+grCtlUUVJ7zmH90x7hSZS -->
+<!-- 9KgXus327VPLscrROnP5VEgVS3FX4lJozGMLFfotVN0U73aIowCMC0t6bIsHewx9 -->
+<!-- BtLgXTneB/cTaHwKV/n3CdFUj9NzwNa+nvU+tDLKIai7dKzRj6JsKC1as7FGER6i -->
+<!-- 6sHXj32WJboweMeTMpeFzHFJ5nroJqPyrzjnQRHm2c1/oYIS8DCCEuwGCisGAQQB -->
+<!-- gjcDAwExghLcMIIS2AYJKoZIhvcNAQcCoIISyTCCEsUCAQMxDzANBglghkgBZQME -->
+<!-- AgEFADCCAVQGCyqGSIb3DQEJEAEEoIIBQwSCAT8wggE7AgEBBgorBgEEAYRZCgMB -->
+<!-- MDEwDQYJYIZIAWUDBAIBBQAEID7X5q70BmIiwmJUMAM0hxczeij1HeV5p4C+66q4 -->
+<!-- 2XZ4AgZhebTFAHgYEjIwMjExMDI5MDc1NTI5LjM1WjAEgAIB9KCB1KSB0TCBzjEL -->
+<!-- MAkGA1UEBhMCVVMxEzARBgNVBAgTCldhc2hpbmd0b24xEDAOBgNVBAcTB1JlZG1v -->
+<!-- bmQxHjAcBgNVBAoTFU1pY3Jvc29mdCBDb3Jwb3JhdGlvbjEpMCcGA1UECxMgTWlj -->
+<!-- cm9zb2Z0IE9wZXJhdGlvbnMgUHVlcnRvIFJpY28xJjAkBgNVBAsTHVRoYWxlcyBU -->
+<!-- U1MgRVNOOkY3QTYtRTI1MS0xNTBBMSUwIwYDVQQDExxNaWNyb3NvZnQgVGltZS1T -->
+<!-- dGFtcCBTZXJ2aWNloIIORDCCBPUwggPdoAMCAQICEzMAAAFZn/x+Xyzq8kMAAAAA -->
+<!-- AVkwDQYJKoZIhvcNAQELBQAwfDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCldhc2hp -->
+<!-- bmd0b24xEDAOBgNVBAcTB1JlZG1vbmQxHjAcBgNVBAoTFU1pY3Jvc29mdCBDb3Jw -->
+<!-- b3JhdGlvbjEmMCQGA1UEAxMdTWljcm9zb2Z0IFRpbWUtU3RhbXAgUENBIDIwMTAw -->
+<!-- HhcNMjEwMTE0MTkwMjE1WhcNMjIwNDExMTkwMjE1WjCBzjELMAkGA1UEBhMCVVMx -->
+<!-- EzARBgNVBAgTCldhc2hpbmd0b24xEDAOBgNVBAcTB1JlZG1vbmQxHjAcBgNVBAoT -->
+<!-- FU1pY3Jvc29mdCBDb3Jwb3JhdGlvbjEpMCcGA1UECxMgTWljcm9zb2Z0IE9wZXJh -->
+<!-- dGlvbnMgUHVlcnRvIFJpY28xJjAkBgNVBAsTHVRoYWxlcyBUU1MgRVNOOkY3QTYt -->
+<!-- RTI1MS0xNTBBMSUwIwYDVQQDExxNaWNyb3NvZnQgVGltZS1TdGFtcCBTZXJ2aWNl -->
+<!-- MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArnjEYclnxIdES00igGj0 -->
+<!-- AboyujyARkK3xaBX+Y10i3a0w4/fNVhTj6xGwibFPB/MkQMFZpNzsvGUTL/XfTZ9 -->
+<!-- GZ39HanCdjunJP3TK9kCZBAtnoP59oYHDCGLmut7+2YEl1sBcVnyovYkNzi3EGff -->
+<!-- QyvULwMUF2siPBs/6LZF0A5pLAiz/FCwx5kDPe/mP1UR3Crz6IzphwtyoqtgDA/4 -->
+<!-- 4TnzfvVJPmSPZ/uq5Oh5NeFK8NzMpitWiQvdmfT4o0CdumnisfW1fKaaBdByBULP -->
+<!-- UT8TLw0Sy9nUWNXlA/qi8MxPxgCjsrNpi9PgjH7ExW9b7X/UydhpqhHxsudDGZNk -->
+<!-- 4wIDAQABo4IBGzCCARcwHQYDVR0OBBYEFPbQqYVGvK365Osn14jCPLLpN2PnMB8G -->
+<!-- A1UdIwQYMBaAFNVjOlyKMZDzQ3t8RhvFM2hahW1VMFYGA1UdHwRPME0wS6BJoEeG -->
+<!-- RWh0dHA6Ly9jcmwubWljcm9zb2Z0LmNvbS9wa2kvY3JsL3Byb2R1Y3RzL01pY1Rp -->
+<!-- bVN0YVBDQV8yMDEwLTA3LTAxLmNybDBaBggrBgEFBQcBAQROMEwwSgYIKwYBBQUH -->
+<!-- MAKGPmh0dHA6Ly93d3cubWljcm9zb2Z0LmNvbS9wa2kvY2VydHMvTWljVGltU3Rh -->
+<!-- UENBXzIwMTAtMDctMDEuY3J0MAwGA1UdEwEB/wQCMAAwEwYDVR0lBAwwCgYIKwYB -->
+<!-- BQUHAwgwDQYJKoZIhvcNAQELBQADggEBAI2RVBLoD4GGt8Y4IBajcpy5Rrh6y2nP -->
+<!-- Kf5kuWSHSkmYAmngRQOstayJ5gJ/ajKhzwqNUwL40cUVW8cutIyFadHkW1jqXdnp -->
+<!-- Sv0hMFLPriPnBNFETy8ilCIdViNFU08ZHa2Kobmco/n6wPStkjjrg4U3Pift6sMk -->
+<!-- 6lXsibUv+wDB9f4YehziPmt+4C5BMVjzax1i+0czgtPHBX33u6GUWznagdql0VbU -->
+<!-- pe3q8zERedJfyyhB9R34z5ircnu51zpH3jUa7F93oDS95xXnomO+akKeDiNGSq4B -->
+<!-- 7J/90qZBRpHV8q8AsFECZmQBS1aKNL/cyR5C/+VS8dWjsY8XMn87fAkwggZxMIIE -->
+<!-- WaADAgECAgphCYEqAAAAAAACMA0GCSqGSIb3DQEBCwUAMIGIMQswCQYDVQQGEwJV -->
+<!-- UzETMBEGA1UECBMKV2FzaGluZ3RvbjEQMA4GA1UEBxMHUmVkbW9uZDEeMBwGA1UE -->
+<!-- ChMVTWljcm9zb2Z0IENvcnBvcmF0aW9uMTIwMAYDVQQDEylNaWNyb3NvZnQgUm9v -->
+<!-- dCBDZXJ0aWZpY2F0ZSBBdXRob3JpdHkgMjAxMDAeFw0xMDA3MDEyMTM2NTVaFw0y -->
+<!-- NTA3MDEyMTQ2NTVaMHwxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpXYXNoaW5ndG9u -->
+<!-- MRAwDgYDVQQHEwdSZWRtb25kMR4wHAYDVQQKExVNaWNyb3NvZnQgQ29ycG9yYXRp -->
+<!-- b24xJjAkBgNVBAMTHU1pY3Jvc29mdCBUaW1lLVN0YW1wIFBDQSAyMDEwMIIBIjAN -->
+<!-- BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqR0NvHcRijog7PwTl/X6f2mUa3RU -->
+<!-- ENWlCgCChfvtfGhLLF/Fw+Vhwna3PmYrW/AVUycEMR9BGxqVHc4JE458YTBZsTBE -->
+<!-- D/FgiIRUQwzXTbg4CLNC3ZOs1nMwVyaCo0UN0Or1R4HNvyRgMlhgRvJYR4YyhB50 -->
+<!-- YWeRX4FUsc+TTJLBxKZd0WETbijGGvmGgLvfYfxGwScdJGcSchohiq9LZIlQYrFd -->
+<!-- /XcfPfBXday9ikJNQFHRD5wGPmd/9WbAA5ZEfu/QS/1u5ZrKsajyeioKMfDaTgaR -->
+<!-- togINeh4HLDpmc085y9Euqf03GS9pAHBIAmTeM38vMDJRF1eFpwBBU8iTQIDAQAB -->
+<!-- o4IB5jCCAeIwEAYJKwYBBAGCNxUBBAMCAQAwHQYDVR0OBBYEFNVjOlyKMZDzQ3t8 -->
+<!-- RhvFM2hahW1VMBkGCSsGAQQBgjcUAgQMHgoAUwB1AGIAQwBBMAsGA1UdDwQEAwIB -->
+<!-- hjAPBgNVHRMBAf8EBTADAQH/MB8GA1UdIwQYMBaAFNX2VsuP6KJcYmjRPZSQW9fO -->
+<!-- mhjEMFYGA1UdHwRPME0wS6BJoEeGRWh0dHA6Ly9jcmwubWljcm9zb2Z0LmNvbS9w -->
+<!-- a2kvY3JsL3Byb2R1Y3RzL01pY1Jvb0NlckF1dF8yMDEwLTA2LTIzLmNybDBaBggr -->
+<!-- BgEFBQcBAQROMEwwSgYIKwYBBQUHMAKGPmh0dHA6Ly93d3cubWljcm9zb2Z0LmNv -->
+<!-- bS9wa2kvY2VydHMvTWljUm9vQ2VyQXV0XzIwMTAtMDYtMjMuY3J0MIGgBgNVHSAB -->
+<!-- Af8EgZUwgZIwgY8GCSsGAQQBgjcuAzCBgTA9BggrBgEFBQcCARYxaHR0cDovL3d3 -->
+<!-- dy5taWNyb3NvZnQuY29tL1BLSS9kb2NzL0NQUy9kZWZhdWx0Lmh0bTBABggrBgEF -->
+<!-- BQcCAjA0HjIgHQBMAGUAZwBhAGwAXwBQAG8AbABpAGMAeQBfAFMAdABhAHQAZQBt -->
+<!-- AGUAbgB0AC4gHTANBgkqhkiG9w0BAQsFAAOCAgEAB+aIUQ3ixuCYP4FxAz2do6Eh -->
+<!-- b7Prpsz1Mb7PBeKp/vpXbRkws8LFZslq3/Xn8Hi9x6ieJeP5vO1rVFcIK1GCRBL7 -->
+<!-- uVOMzPRgEop2zEBAQZvcXBf/XPleFzWYJFZLdO9CEMivv3/Gf/I3fVo/HPKZeUqR -->
+<!-- UgCvOA8X9S95gWXZqbVr5MfO9sp6AG9LMEQkIjzP7QOllo9ZKby2/QThcJ8ySif9 -->
+<!-- Va8v/rbljjO7Yl+a21dA6fHOmWaQjP9qYn/dxUoLkSbiOewZSnFjnXshbcOco6I8 -->
+<!-- +n99lmqQeKZt0uGc+R38ONiU9MalCpaGpL2eGq4EQoO4tYCbIjggtSXlZOz39L9+ -->
+<!-- Y1klD3ouOVd2onGqBooPiRa6YacRy5rYDkeagMXQzafQ732D8OE7cQnfXXSYIghh -->
+<!-- 2rBQHm+98eEA3+cxB6STOvdlR3jo+KhIq/fecn5ha293qYHLpwmsObvsxsvYgrRy -->
+<!-- zR30uIUBHoD7G4kqVDmyW9rIDVWZeodzOwjmmC3qjeAzLhIp9cAvVCch98isTtoo -->
+<!-- uLGp25ayp0Kiyc8ZQU3ghvkqmqMRZjDTu3QyS99je/WZii8bxyGvWbWu3EQ8l1Bx -->
+<!-- 16HSxVXjad5XwdHeMMD9zOZN+w2/XU/pnR4ZOC+8z1gFLu8NoFA12u8JJxzVs341 -->
+<!-- Hgi62jbb01+P3nSISRKhggLSMIICOwIBATCB/KGB1KSB0TCBzjELMAkGA1UEBhMC -->
+<!-- VVMxEzARBgNVBAgTCldhc2hpbmd0b24xEDAOBgNVBAcTB1JlZG1vbmQxHjAcBgNV -->
+<!-- BAoTFU1pY3Jvc29mdCBDb3Jwb3JhdGlvbjEpMCcGA1UECxMgTWljcm9zb2Z0IE9w -->
+<!-- ZXJhdGlvbnMgUHVlcnRvIFJpY28xJjAkBgNVBAsTHVRoYWxlcyBUU1MgRVNOOkY3 -->
+<!-- QTYtRTI1MS0xNTBBMSUwIwYDVQQDExxNaWNyb3NvZnQgVGltZS1TdGFtcCBTZXJ2 -->
+<!-- aWNloiMKAQEwBwYFKw4DAhoDFQAqdssAjx+E7nxIJaulmde9cRmyEaCBgzCBgKR+ -->
+<!-- MHwxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpXYXNoaW5ndG9uMRAwDgYDVQQHEwdS -->
+<!-- ZWRtb25kMR4wHAYDVQQKExVNaWNyb3NvZnQgQ29ycG9yYXRpb24xJjAkBgNVBAMT -->
+<!-- HU1pY3Jvc29mdCBUaW1lLVN0YW1wIFBDQSAyMDEwMA0GCSqGSIb3DQEBBQUAAgUA -->
+<!-- 5SWErjAiGA8yMDIxMTAyOTAwMjEwMloYDzIwMjExMDMwMDAyMTAyWjB3MD0GCisG -->
+<!-- AQQBhFkKBAExLzAtMAoCBQDlJYSuAgEAMAoCAQACAiUQAgH/MAcCAQACAhFQMAoC -->
+<!-- BQDlJtYuAgEAMDYGCisGAQQBhFkKBAIxKDAmMAwGCisGAQQBhFkKAwKgCjAIAgEA -->
+<!-- AgMHoSChCjAIAgEAAgMBhqAwDQYJKoZIhvcNAQEFBQADgYEAAATED4QICn0x8UF2 -->
+<!-- eNcAw5QZqgU3N6fxG930/zrV0qBIXda3JMh2t/WWYOpD6SAOONWZt+kuYtr0A3jX -->
+<!-- CnHTvRlGwe6HBsoWhDeacTHqbQZqZCUCxfozd7iERcnrD6CMw0qYklFxeLss4+ZR -->
+<!-- 1dNYqivBOANgqc9RslOlIonyQW4xggMNMIIDCQIBATCBkzB8MQswCQYDVQQGEwJV -->
+<!-- UzETMBEGA1UECBMKV2FzaGluZ3RvbjEQMA4GA1UEBxMHUmVkbW9uZDEeMBwGA1UE -->
+<!-- ChMVTWljcm9zb2Z0IENvcnBvcmF0aW9uMSYwJAYDVQQDEx1NaWNyb3NvZnQgVGlt -->
+<!-- ZS1TdGFtcCBQQ0EgMjAxMAITMwAAAVmf/H5fLOryQwAAAAABWTANBglghkgBZQME -->
+<!-- AgEFAKCCAUowGgYJKoZIhvcNAQkDMQ0GCyqGSIb3DQEJEAEEMC8GCSqGSIb3DQEJ -->
+<!-- BDEiBCB7qQ+n2dd2etwx9eXOCh6kh9AXS4lIiZ/WxQ2og5m6ODCB+gYLKoZIhvcN -->
+<!-- AQkQAi8xgeowgecwgeQwgb0EIAFYG8+/MOZ815LOYlPj50YD66P+qrv98qRSffqv -->
+<!-- E0PoMIGYMIGApH4wfDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCldhc2hpbmd0b24x -->
+<!-- EDAOBgNVBAcTB1JlZG1vbmQxHjAcBgNVBAoTFU1pY3Jvc29mdCBDb3Jwb3JhdGlv -->
+<!-- bjEmMCQGA1UEAxMdTWljcm9zb2Z0IFRpbWUtU3RhbXAgUENBIDIwMTACEzMAAAFZ -->
+<!-- n/x+Xyzq8kMAAAAAAVkwIgQgSjyBmu3G3LrP9itop9OE39RNRU04v+Mxqcpmvfs0 -->
+<!-- C70wDQYJKoZIhvcNAQELBQAEggEAK0w/KAllphwzNHBUV08EvF5YnndWu6Ggt87p -->
+<!-- IqDDRpz2UK68R5U4OcmPABFhXbFUD0IY8iBbzCMttOXSh4TRrl1Mv5uRn3WUeabq -->
+<!-- 9EY1I83pRwIh3hIuDdJfsXw4Wgnsi+07/laxt4zuY/Rw5itJC/ADEhqI9epb4nsm -->
+<!-- jQWtpUzm01HVRPLWfb06l2aZ3zzrIPgEs/Diu4FnZcyjlrbvUrVf787NaGJgV67T -->
+<!-- i3E5XvOY7QuSSsEQgNZ5YhORq84MwUYUAWWDxJevqVEux9TF/nydEtSYl3n3prnv -->
+<!-- Y6BlK8p2e0+9PgfOh601n6+Hd0fOxiT2uuj6tSN3YsIjPKibvA== -->
+<!-- SIG # End signature block -->

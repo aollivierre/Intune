@@ -1,0 +1,38 @@
+//Token#1 from Get-MsalToken
+
+// eyJ0eXAiOiJKV1QiLCJub25jZSI6IjFIQ1laZTdkMFc2cGtid0tGYTNxWEtmRWE1SmMyNC1yX29uS1UwR0QxQU0iLCJhbGciOiJSUzI1NiIsIng1dCI6IjJaUXBKM1VwYmpBWVhZR2FYRUpsOGxWMFRPSSIsImtpZCI6IjJaUXBKM1VwYmpBWVhZR2FYRUpsOGxWMFRPSSJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9kYzMyMjdhNC01M2JhLTQ4ZjEtYjU0Yi04OTkzNmNkNWNhNTMvIiwiaWF0IjoxNjYxMDE2MTYxLCJuYmYiOjE2NjEwMTYxNjEsImV4cCI6MTY2MTAyMDA2MSwiYWlvIjoiRTJaZ1lCQ05TMlE4NGFSditwRlhPRi85MnBjakFBPT0iLCJhcHBfZGlzcGxheW5hbWUiOiIwMDIgLSBBenVyZSBLZXkgVmF1bHQgLSBUZWFtVmlld2VyIC0gU2VydmljZSBQcmluY2lwYWwgLSBQb3dlclNoZWxsIEF1dG9tYXRpb24iLCJhcHBpZCI6IjRkODBhZDQxLWIwMmItNDQ2NS05ZTYwLWE4M2UyNGZjZDY0ZiIsImFwcGlkYWNyIjoiMiIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2RjMzIyN2E0LTUzYmEtNDhmMS1iNTRiLTg5OTM2Y2Q1Y2E1My8iLCJpZHR5cCI6ImFwcCIsIm9pZCI6ImE2NDI4OWNjLWQ3ZTctNDAxOC1hOGUzLTZiNjAzNmFlNTRjZSIsInJoIjoiMC5BUmNBcENjeTNMcFQ4VWkxUzRtVGJOWEtVd01BQUFBQUFBQUF3QUFBQUFBQUFBQVhBQUEuIiwic3ViIjoiYTY0Mjg5Y2MtZDdlNy00MDE4LWE4ZTMtNmI2MDM2YWU1NGNlIiwidGVuYW50X3JlZ2lvbl9zY29wZSI6Ik5BIiwidGlkIjoiZGMzMjI3YTQtNTNiYS00OGYxLWI1NGItODk5MzZjZDVjYTUzIiwidXRpIjoiOWJGN0RDc0ZNVTJpOUpBeDE5Z0JBQSIsInZlciI6IjEuMCIsIndpZHMiOlsiMDk5N2ExZDAtMGQxZC00YWNiLWI0MDgtZDVjYTczMTIxZTkwIl0sInhtc190Y2R0IjoxNDYyNTU1MTY4fQ.cfh3ndyhhZ-t_nC73pWPgJJYxrwOOI9Jk51M-cJqUcW45uwVUSCGJ35T2mN2ZBT18-5C2TnbwYvvQGUN9MbWkqvYRush6tHcgC4Bh7KrVQL6uswJpydZx4_gqPQ8_PlC9TH89LO-92Sx4zi_IBfi24NxofDNvuSLmXtUDhYhrvFrwy71NKiZsaRU50QjxHADee25d3ByJkQQR1GpHqvMAMIRxqpxMBHy1RM42xN5l_GdrGIrwPR8uU4LCFVNaBd_8Swe3J8L1MURh0k6RbtTkntf7K-yznEUdguh7Y3YOCdLEMj16YsrQNk62h0F5vaugEOld192wCdWS-mRg0kcjw
+
+
+HEADER
+{
+    "typ": "JWT",
+    "nonce": "1HCYZe7d0W6pkbwKFa3qXKfEa5Jc24-r_onKU0GD1AM",
+    "alg": "RS256",
+    "x5t": "2ZQpJ3UpbjAYXYGaXEJl8lV0TOI",
+    "kid": "2ZQpJ3UpbjAYXYGaXEJl8lV0TOI"
+}
+PAYLOAD
+{
+    "aud": "https://graph.microsoft.com",
+    "iss": "https://sts.windows.net/dc3227a4-53ba-48f1-b54b-89936cd5ca53/",
+    "iat": 1661016161,
+    "nbf": 1661016161,
+    "exp": 1661020061,
+    "aio": "E2ZgYBCNS2Q84aRv+pFXOF/92pcjAA==",
+    "app_displayname": "002 - Azure Key Vault - TeamViewer - Service Principal - PowerShell Automation",
+    "appid": "4d80ad41-b02b-4465-9e60-a83e24fcd64f",
+    "appidacr": "2",
+    "idp": "https://sts.windows.net/dc3227a4-53ba-48f1-b54b-89936cd5ca53/",
+    "idtyp": "app",
+    "oid": "a64289cc-d7e7-4018-a8e3-6b6036ae54ce",
+    "rh": "0.ARcApCcy3LpT8Ui1S4mTbNXKUwMAAAAAAAAAwAAAAAAAAAAXAAA.",
+    "sub": "a64289cc-d7e7-4018-a8e3-6b6036ae54ce",
+    "tenant_region_scope": "NA",
+    "tid": "dc3227a4-53ba-48f1-b54b-89936cd5ca53",
+    "uti": "9bF7DCsFMU2i9JAx19gBAA",
+    "ver": "1.0",
+    "wids": [
+        "0997a1d0-0d1d-4acb-b408-d5ca73121e90"
+    ],
+    "xms_tcdt": 1462555168
+}

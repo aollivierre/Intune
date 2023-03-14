@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../Program Files/WindowsPowerShell/Modules"
+		},
+		{
+			"path": "../../../../cci"
+		}
+	],
+	"settings": {
+		"powershell.cwd": "c:\\Program Files\\WindowsPowerShell\\Modules"
+	}
+}
