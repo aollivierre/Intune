@@ -29,7 +29,7 @@ Before using any of the functions within this module that interacts with Graph A
 
 Name                           Value
 ----                           -----
-Authorization                  Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkRfVzctVDNGNjcwYUxCRF92VjZ5T1l5bno4LUh3VjQ4Z05DdEVXNVAxSHciLCJhbGciOiJSUzI1NiIsIng1dCI6IjJaUXBKM1VwYmpBWV...
+Authorization                  Bearer 'your access token'...
 Content-Type                   application/json
 ExpiresOn                      2022-07-24 2:08:50 AM
 
