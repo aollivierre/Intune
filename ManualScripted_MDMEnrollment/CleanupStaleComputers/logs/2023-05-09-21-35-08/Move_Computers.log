@@ -1,0 +1,240 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20230509213508
+Username: CPHA\BitlockerUser
+RunAs User: CPHA\BitlockerUser
+Configuration Name: 
+Machine: CPHA-WIN10-TEST (Microsoft Windows NT 10.0.19045.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command Import-Module 'c:\Users\bitlockeruser\.vscode\extensions\ms-vscode.powershell-2023.5.0\modules\PowerShellEditorServices\PowerShellEditorServices.psd1'; Start-EditorServices -HostName 'Visual Studio Code Host' -HostProfileId 'Microsoft.VSCode' -HostVersion '2023.5.0' -AdditionalModules @('PowerShellEditorServices.VSCode') -BundledModulesPath 'c:\Users\bitlockeruser\.vscode\extensions\ms-vscode.powershell-2023.5.0\modules' -EnableConsoleRepl -StartupBanner "PowerShell Extension v2023.5.0
+Copyright (c) Microsoft Corporation.
+
+https://aka.ms/vscode-powershell
+Type 'help' to get help.
+" -LogLevel 'Normal' -LogPath 'c:\Users\bitlockeruser\AppData\Roaming\Code\User\globalStorage\ms-vscode.powershell\logs\1683671070-d4fce1c2-b220-4415-9279-3c026aeaa3021683671032491\EditorServices.log' -SessionDetailsPath 'c:\Users\bitlockeruser\AppData\Roaming\Code\User\globalStorage\ms-vscode.powershell\sessions\PSES-VSCode-15620-149733.json' -FeatureFlags @() 
+Process ID: 14740
+PSVersion: 5.1.19041.2673
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.2673
+BuildVersion: 10.0.19041.2673
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Code\Intune\ManualScripted_MDMEnrollment\CleanupStaleComputers\logs\2023-05-09-21-35-08\Move_Computers.log
+2023-05-09 21:35:09 - Moved CPHA-NB012 to Disabled Computers container.
+2023-05-09 21:35:09 - Moved CPHA20-NB02 to Disabled Computers container.
+2023-05-09 21:35:09 - Moved CPHA-NB091 to Disabled Computers container.
+2023-05-09 21:35:09 - Moved CPHA-MANAGE1 to Disabled Computers container.
+2023-05-09 21:35:09 - Moved barracuda to Disabled Computers container.
+2023-05-09 21:35:09 - Moved CPHA-OLD-FS1 to Disabled Computers container.
+2023-05-09 21:35:10 - Moved CPHA-APPSERVER to Disabled Computers container.
+2023-05-09 21:35:10 - Moved ACPHA-CMSBACK to Disabled Computers container.
+2023-05-09 21:35:10 - Moved ACPHA-CMS1 to Disabled Computers container.
+2023-05-09 21:35:10 - Moved ACPHA-CMS2 to Disabled Computers container.
+2023-05-09 21:35:10 - Moved CPHA-WEB to Disabled Computers container.
+2023-05-09 21:35:10 - Moved CPHA-SPR to Disabled Computers container.
+2023-05-09 21:35:10 - Moved CPHA-DEV-APP to Disabled Computers container.
+2023-05-09 21:35:10 - Moved CPHA-DEV-DB to Disabled Computers container.
+2023-05-09 21:35:10 - Moved CPHA-NB004 to Disabled Computers container.
+2023-05-09 21:35:11 - Moved CPHA-TESTING to Disabled Computers container.
+2023-05-09 21:35:11 - Moved CPHA-NB003 to Disabled Computers container.
+2023-05-09 21:35:11 - Moved CPHA-NB013 to Disabled Computers container.
+2023-05-09 21:35:11 - Moved CPHA-UT1 to Disabled Computers container.
+2023-05-09 21:35:11 - Moved TESTIMAGE to Disabled Computers container.
+2023-05-09 21:35:11 - Moved CPHA-WEBGB2 to Disabled Computers container.
+2023-05-09 21:35:11 - Moved CPHA-NB024 to Disabled Computers container.
+2023-05-09 21:35:11 - Moved CPHA-DEV to Disabled Computers container.
+2023-05-09 21:35:11 - Moved WIN-V332R2915E2 to Disabled Computers container.
+2023-05-09 21:35:12 - Moved CPHA-NB010 to Disabled Computers container.
+2023-05-09 21:35:12 - Moved CPHA-NB008 to Disabled Computers container.
+2023-05-09 21:35:12 - Moved CPHA-WS053 to Disabled Computers container.
+2023-05-09 21:35:12 - Moved CPHA-WS047 to Disabled Computers container.
+2023-05-09 21:35:12 - Moved CPHA-WS55 to Disabled Computers container.
+2023-05-09 21:35:12 - Moved CPHA-WS017 to Disabled Computers container.
+2023-05-09 21:35:12 - Moved CPHA-SHORETEL to Disabled Computers container.
+2023-05-09 21:35:12 - Moved CPHA-VMM to Disabled Computers container.
+2023-05-09 21:35:12 - Moved CPHA-DEV-HOST to Disabled Computers container.
+2023-05-09 21:35:12 - Moved CPHA-VEEAM to Disabled Computers container.
+2023-05-09 21:35:13 - Moved CPHA-HOST03 to Disabled Computers container.
+2023-05-09 21:35:13 - Moved P2V_TEMP to Disabled Computers container.
+2023-05-09 21:35:13 - Moved CPHA-NB029 to Disabled Computers container.
+2023-05-09 21:35:13 - Moved CPHA2015-WS059 to Disabled Computers container.
+2023-05-09 21:35:13 - Moved CPHA-VEEAM-HV to Disabled Computers container.
+2023-05-09 21:35:13 - Moved CPHA2015-WS049 to Disabled Computers container.
+2023-05-09 21:35:13 - Moved CPHA-NB034 to Disabled Computers container.
+2023-05-09 21:35:13 - Moved CPHA-WS057 to Disabled Computers container.
+2023-05-09 21:35:13 - Moved CPHA2015-WS020 to Disabled Computers container.
+2023-05-09 21:35:14 - Moved CPHA2015-WS013 to Disabled Computers container.
+2023-05-09 21:35:14 - Moved CPHA2015-WS021 to Disabled Computers container.
+2023-05-09 21:35:14 - Moved CPHA_IAN to Disabled Computers container.
+2023-05-09 21:35:14 - Moved CPHA2015-WS001 to Disabled Computers container.
+2023-05-09 21:35:14 - Moved CPHA2015-WS016 to Disabled Computers container.
+2023-05-09 21:35:14 - Moved CPHA2015-WS060 to Disabled Computers container.
+2023-05-09 21:35:14 - Moved CPHA-WS054 to Disabled Computers container.
+2023-05-09 21:35:14 - Moved CPHA-WS070 to Disabled Computers container.
+2023-05-09 21:35:14 - Moved CPHA2015-WS009 to Disabled Computers container.
+2023-05-09 21:35:14 - Moved CPHA2015-WS058 to Disabled Computers container.
+2023-05-09 21:35:14 - Moved CPHA2015-WS027 to Disabled Computers container.
+2023-05-09 21:35:15 - Moved CPHA2015-WS031 to Disabled Computers container.
+2023-05-09 21:35:15 - Moved CPHA2015-WS006 to Disabled Computers container.
+2023-05-09 21:35:15 - Moved CPHA-WS030 to Disabled Computers container.
+2023-05-09 21:35:15 - Moved CPHA2015-WS017 to Disabled Computers container.
+2023-05-09 21:35:15 - Moved CPHA2015-WS51 to Disabled Computers container.
+2023-05-09 21:35:15 - Moved CPHA2015-WS55 to Disabled Computers container.
+2023-05-09 21:35:15 - Moved CPHA-NB014 to Disabled Computers container.
+2023-05-09 21:35:15 - Moved CPHA-SURFACE2 to Disabled Computers container.
+2023-05-09 21:35:15 - Moved CPHA2015-WS044 to Disabled Computers container.
+2023-05-09 21:35:15 - Moved ACM to Disabled Computers container.
+2023-05-09 21:35:15 - Moved ACMDEV to Disabled Computers container.
+2023-05-09 21:35:16 - Moved ASQL to Disabled Computers container.
+2023-05-09 21:35:16 - Moved ASQLDEV to Disabled Computers container.
+2023-05-09 21:35:16 - Moved APEDEV to Disabled Computers container.
+2023-05-09 21:35:16 - Moved CPHA2018-NB086 to Disabled Computers container.
+2023-05-09 21:35:16 - Moved CPHA2015-WS063 to Disabled Computers container.
+2023-05-09 21:35:16 - Moved CPHA2015-WS048 to Disabled Computers container.
+2023-05-09 21:35:16 - Moved CPHA2015-WS002 to Disabled Computers container.
+2023-05-09 21:35:16 - Moved CPHA2015-WS033 to Disabled Computers container.
+2023-05-09 21:35:16 - Moved CPHA2015-WS037 to Disabled Computers container.
+2023-05-09 21:35:16 - Moved CPHA2015-WS028 to Disabled Computers container.
+2023-05-09 21:35:16 - Moved CPHA2015-WS024 to Disabled Computers container.
+2023-05-09 21:35:17 - Moved CPHA2015-WS043 to Disabled Computers container.
+2023-05-09 21:35:17 - Moved CPHA2015-WS038 to Disabled Computers container.
+2023-05-09 21:35:17 - Moved CPHA2015-WS019 to Disabled Computers container.
+2023-05-09 21:35:17 - Moved CPHA2015-WS004 to Disabled Computers container.
+2023-05-09 21:35:17 - Moved CPHA2015-WS032 to Disabled Computers container.
+2023-05-09 21:35:17 - Moved CPHA-NB011 to Disabled Computers container.
+2023-05-09 21:35:17 - Moved CPHA2015-WS054 to Disabled Computers container.
+2023-05-09 21:35:17 - Moved CPHA2015-NB007 to Disabled Computers container.
+2023-05-09 21:35:18 - Moved CPHA2015-WS045 to Disabled Computers container.
+2023-05-09 21:35:18 - Moved CPHA-NB38 to Disabled Computers container.
+2023-05-09 21:35:18 - Moved CPHA-NB025 to Disabled Computers container.
+2023-05-09 21:35:18 - Moved CPHA2015-WS034 to Disabled Computers container.
+2023-05-09 21:35:18 - Moved CPHA2015-WS050 to Disabled Computers container.
+2023-05-09 21:35:18 - Moved CPHA-NB022 to Disabled Computers container.
+2023-05-09 21:35:18 - Moved CPHA2015-WS003 to Disabled Computers container.
+2023-05-09 21:35:18 - Moved CPHA-NB019 to Disabled Computers container.
+2023-05-09 21:35:19 - Moved CPHA-NB002 to Disabled Computers container.
+2023-05-09 21:35:19 - Moved CPHA-NB017 to Disabled Computers container.
+2023-05-09 21:35:19 - Moved CPHA-NB033 to Disabled Computers container.
+2023-05-09 21:35:19 - Moved CPHA-NB027 to Disabled Computers container.
+2023-05-09 21:35:19 - Moved CPHA2015-WS023 to Disabled Computers container.
+2023-05-09 21:35:19 - Moved CPHA-WS101 to Disabled Computers container.
+2023-05-09 21:35:19 - Moved CPHA2015-WS042 to Disabled Computers container.
+2023-05-09 21:35:19 - Moved CPHA2015-WS039 to Disabled Computers container.
+2023-05-09 21:35:20 - Moved CPHA2015-WS055 to Disabled Computers container.
+2023-05-09 21:35:20 - Moved CPHA2015-WS029 to Disabled Computers container.
+2023-05-09 21:35:20 - Moved CPHA-NB009 to Disabled Computers container.
+2023-05-09 21:35:20 - Moved CPHA-NB023 to Disabled Computers container.
+2023-05-09 21:35:20 - Moved CPHA-NB006 to Disabled Computers container.
+2023-05-09 21:35:20 - Moved CPHA-NB026 to Disabled Computers container.
+2023-05-09 21:35:20 - Moved CPHA-NB039 to Disabled Computers container.
+2023-05-09 21:35:21 - Moved CPHA-NB032 to Disabled Computers container.
+2023-05-09 21:35:21 - Moved CPHA-WS055 to Disabled Computers container.
+2023-05-09 21:35:21 - Moved CPHA-SURFACE1 to Disabled Computers container.
+2023-05-09 21:35:21 - Moved CPHA-NB041 to Disabled Computers container.
+2023-05-09 21:35:21 - Moved CPHA-UTIL to Disabled Computers container.
+2023-05-09 21:35:21 - Moved CPHA2015-WS005 to Disabled Computers container.
+2023-05-09 21:35:21 - Moved CPHA2015-NB017 to Disabled Computers container.
+2023-05-09 21:35:21 - Moved CPHA2015-NB023 to Disabled Computers container.
+2023-05-09 21:35:21 - Moved CPHA2015-NB011 to Disabled Computers container.
+2023-05-09 21:35:22 - Moved CPHA-NB020 to Disabled Computers container.
+2023-05-09 21:35:22 - Moved CPHA-NB001 to Disabled Computers container.
+2023-05-09 21:35:22 - Moved CPHA2015-WS051 to Disabled Computers container.
+2023-05-09 21:35:22 - Moved CPHA2015-WS012 to Disabled Computers container.
+2023-05-09 21:35:22 - Moved CPHA2015-WS022 to Disabled Computers container.
+2023-05-09 21:35:22 - Moved CPHA2015-WS067 to Disabled Computers container.
+2023-05-09 21:35:22 - Moved CPHA2015-NB040 to Disabled Computers container.
+2023-05-09 21:35:22 - Moved CPHA-2012-TEST to Disabled Computers container.
+2023-05-09 21:35:22 - Moved CPHA2017-NB079 to Disabled Computers container.
+2023-05-09 21:35:22 - Moved CPHA2015-WS052 to Disabled Computers container.
+2023-05-09 21:35:23 - Moved CPHA-NB015 to Disabled Computers container.
+2023-05-09 21:35:23 - Moved CPHA-NB005 to Disabled Computers container.
+2023-05-09 21:35:23 - Moved CPHA2017-NB075 to Disabled Computers container.
+2023-05-09 21:35:23 - Moved CPHA2015-WS041 to Disabled Computers container.
+2023-05-09 21:35:23 - Moved CPHA2015-WS026 to Disabled Computers container.
+2023-05-09 21:35:23 - Moved CPHA-NB036 to Disabled Computers container.
+2023-05-09 21:35:23 - Moved CPHA-NB037 to Disabled Computers container.
+2023-05-09 21:35:23 - Moved CPHA-DEV-UTIL to Disabled Computers container.
+2023-05-09 21:35:23 - Moved CPHA-DEV-CI to Disabled Computers container.
+2023-05-09 21:35:24 - Moved CPHA-SURFACE4 to Disabled Computers container.
+2023-05-09 21:35:24 - Moved CPHA2016-NB008 to Disabled Computers container.
+2023-05-09 21:35:24 - Moved CPHA-NB018 to Disabled Computers container.
+2023-05-09 21:35:24 - Moved CPHA2017-NB070 to Disabled Computers container.
+2023-05-09 21:35:24 - Moved CPHA-NB042 to Disabled Computers container.
+2023-05-09 21:35:24 - Moved CPHA2019-VM01 to Disabled Computers container.
+2023-05-09 21:35:24 - Moved CPHA2015-WS036 to Disabled Computers container.
+2023-05-09 21:35:24 - Moved CPHA-GP64 to Disabled Computers container.
+2023-05-09 21:35:25 - Moved CPHA2015-WS068 to Disabled Computers container.
+2023-05-09 21:35:25 - Moved CPHA2015-WS014 to Disabled Computers container.
+2023-05-09 21:35:25 - Moved CPHA2015-WS056 to Disabled Computers container.
+2023-05-09 21:35:25 - Moved CPHA2015-WS018 to Disabled Computers container.
+2023-05-09 21:35:25 - Moved CPHA2015-WS061 to Disabled Computers container.
+2023-05-09 21:35:25 - Moved CPHA2015-WS015 to Disabled Computers container.
+2023-05-09 21:35:25 - Moved CPHA-WS015 to Disabled Computers container.
+2023-05-09 21:35:25 - Moved CPHA-NB043 to Disabled Computers container.
+2023-05-09 21:35:25 - Moved CPHA2015-NB032 to Disabled Computers container.
+2023-05-09 21:35:26 - Moved CPHA-EX10V to Disabled Computers container.
+2023-05-09 21:35:26 - Moved CPHA2017-NB002 to Disabled Computers container.
+2023-05-09 21:35:26 - Moved CPHA-SURFACE03 to Disabled Computers container.
+2023-05-09 21:35:26 - Moved CPHA-SURFACE6 to Disabled Computers container.
+2023-05-09 21:35:26 - Moved T440S_TEST to Disabled Computers container.
+2023-05-09 21:35:26 - Moved CPHA-NB028 to Disabled Computers container.
+2023-05-09 21:35:26 - Moved CPHA2016-NB009 to Disabled Computers container.
+2023-05-09 21:35:26 - Moved CPHA-NB021 to Disabled Computers container.
+2023-05-09 21:35:26 - Moved WIN10-3A to Disabled Computers container.
+2023-05-09 21:35:27 - Moved WIN10-AK to Disabled Computers container.
+2023-05-09 21:35:27 - Moved CPHA2019-NB018 to Disabled Computers container.
+2023-05-09 21:35:27 - Moved CPHA2017-NB069 to Disabled Computers container.
+2023-05-09 21:35:27 - Moved CPHA-SURFACE5 to Disabled Computers container.
+2023-05-09 21:35:27 - Moved CPHA-WGM1 to Disabled Computers container.
+2023-05-09 21:35:27 - Moved CPHA-WGM2 to Disabled Computers container.
+2023-05-09 21:35:27 - Moved CPHA-WEBGM to Disabled Computers container.
+2023-05-09 21:35:27 - Moved CPHA-WEBGM2 to Disabled Computers container.
+2023-05-09 21:35:27 - Moved ASQL2017 to Disabled Computers container.
+2023-05-09 21:35:28 - Moved APEDEV2017 to Disabled Computers container.
+2023-05-09 21:35:28 - Moved ASQLDEV2017 to Disabled Computers container.
+2023-05-09 21:35:28 - Moved ACMDEV2017 to Disabled Computers container.
+2023-05-09 21:35:28 - Moved ACM2017 to Disabled Computers container.
+2023-05-09 21:35:28 - Moved CPHA2017-NB039 to Disabled Computers container.
+2023-05-09 21:35:28 - Moved CPHA2016-NB017 to Disabled Computers container.
+2023-05-09 21:35:28 - Moved CPHA-VEEAMPROXY to Disabled Computers container.
+2023-05-09 21:35:28 - Moved cpha2018-imac01 to Disabled Computers container.
+2023-05-09 21:35:28 - Moved CPHA-NB040 to Disabled Computers container.
+2023-05-09 21:35:29 - Moved CPHA-NB035 to Disabled Computers container.
+2023-05-09 21:35:29 - Moved CPHA-SURFACE08 to Disabled Computers container.
+2023-05-09 21:35:29 - Moved CPHA2019-NB047 to Disabled Computers container.
+2023-05-09 21:35:29 - Moved CPHA2015-WS025 to Disabled Computers container.
+2023-05-09 21:35:29 - Moved CPHA2019-NB015 to Disabled Computers container.
+2023-05-09 21:35:29 - Moved CPHA-WS011 to Disabled Computers container.
+2023-05-09 21:35:29 - Moved CPHA2017-NB067 to Disabled Computers container.
+2023-05-09 21:35:29 - Moved CPHA2018-NB084 to Disabled Computers container.
+2023-05-09 21:35:29 - Moved CPHA2016-NB001 to Disabled Computers container.
+2023-05-09 21:35:29 - Moved CPHA2015-WS064 to Disabled Computers container.
+2023-05-09 21:35:29 - Moved CPHA-BACKUP1 to Disabled Computers container.
+2023-05-09 21:35:30 - Moved CPHA2021-NB013 to Disabled Computers container.
+2023-05-09 21:35:30 - Moved CPHA-APLUS to Disabled Computers container.
+2023-05-09 21:35:30 - Moved CPHA2019-NB011 to Disabled Computers container.
+2023-05-09 21:35:30 - Moved CPHA2018-NB083 to Disabled Computers container.
+2023-05-09 21:35:30 - Moved CPHA2017-NB017 to Disabled Computers container.
+2023-05-09 21:35:30 - Moved CPHA2017-NB076 to Disabled Computers container.
+2023-05-09 21:35:30 - Moved CPHA-W10 to Disabled Computers container.
+2023-05-09 21:35:30 - Moved CPHA2017-NB080 to Disabled Computers container.
+2023-05-09 21:35:31 - Moved CPHA2017-NB073 to Disabled Computers container.
+2023-05-09 21:35:31 - Moved CPHA-SURFACE07 to Disabled Computers container.
+2023-05-09 21:35:31 - Moved CPHA2022-NB005 to Disabled Computers container.
+2023-05-09 21:35:31 - Moved CPHA2019-NB032 to Disabled Computers container.
+2023-05-09 21:35:31 - Moved CPHA2019-NB028 to Disabled Computers container.
+2023-05-09 21:35:31 - Moved CPHA2017-NB074 to Disabled Computers container.
+2023-05-09 21:35:31 - Moved CPHA2019-NB017 to Disabled Computers container.
+2023-05-09 21:35:31 - Moved CPHA2019-NB030 to Disabled Computers container.
+2023-05-09 21:35:31 - Moved CPHA2019-NB023 to Disabled Computers container.
+2023-05-09 21:35:31 - Moved DESKTOP-O3VMVSQ to Disabled Computers container.
+2023-05-09 21:35:31 - Moved CPHA2017-NB026 to Disabled Computers container.
+
+Summary:
+Total computers moved: 209
+**********************
+Windows PowerShell transcript end
+End time: 20230509213532
+**********************

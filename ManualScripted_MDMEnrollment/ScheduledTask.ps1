@@ -1,0 +1,1 @@
+-ExecutionPolicy Bypass -File \\cpha-fs1\MDMDiagnostics\EnrollMDM.ps1
