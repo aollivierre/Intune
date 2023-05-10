@@ -6,10 +6,10 @@ $lastLoginThreshold = (Get-Date).AddDays(-90)
 
 # Import the CSV file containing the stale devices to disable
 # $staleDevices = Import-Csv -Path "C:\Code\CB\Entra\Exports\InactiveDevices_20230402_162120.csv"
-$staleDevices = Import-Csv -Path "C:\Code\Intune\ManualScripted_MDMEnrollment\Entra\Exports\InactiveDevices_20230509_222453.csv"
+$staleDevices = Import-Csv -Path "C:\Code\Intune\ManualScripted_MDMEnrollment\Entra\Exports\InactiveDevices_20230509_234619.csv"
 
 # Set the log path
-$logPath = "C:\Code\Intune\ManualScripted_MDMEnrollment\Entra\logs\Disable-StaleDevices.log"
+$logPath = "C:\Code\Intune\ManualScripted_MDMEnrollment\Entra\logs\Disable-StaleDevices2.log"
 
 # Loop through each device in the CSV file
 foreach ($device in $staleDevices) {
