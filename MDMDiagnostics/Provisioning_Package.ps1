@@ -1,0 +1,1 @@
+msiexec /i "microsoftdeploymenttoolkit_x64.msi" /qn /norestart
