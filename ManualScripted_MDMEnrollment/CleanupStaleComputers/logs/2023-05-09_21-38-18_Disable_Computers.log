@@ -1,0 +1,238 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20230509213818
+Username: CPHA\BitlockerUser
+RunAs User: CPHA\BitlockerUser
+Configuration Name: 
+Machine: CPHA-WIN10-TEST (Microsoft Windows NT 10.0.19045.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command Import-Module 'c:\Users\bitlockeruser\.vscode\extensions\ms-vscode.powershell-2023.5.0\modules\PowerShellEditorServices\PowerShellEditorServices.psd1'; Start-EditorServices -HostName 'Visual Studio Code Host' -HostProfileId 'Microsoft.VSCode' -HostVersion '2023.5.0' -AdditionalModules @('PowerShellEditorServices.VSCode') -BundledModulesPath 'c:\Users\bitlockeruser\.vscode\extensions\ms-vscode.powershell-2023.5.0\modules' -EnableConsoleRepl -StartupBanner "PowerShell Extension v2023.5.0
+Copyright (c) Microsoft Corporation.
+
+https://aka.ms/vscode-powershell
+Type 'help' to get help.
+" -LogLevel 'Normal' -LogPath 'c:\Users\bitlockeruser\AppData\Roaming\Code\User\globalStorage\ms-vscode.powershell\logs\1683671070-d4fce1c2-b220-4415-9279-3c026aeaa3021683671032491\EditorServices.log' -SessionDetailsPath 'c:\Users\bitlockeruser\AppData\Roaming\Code\User\globalStorage\ms-vscode.powershell\sessions\PSES-VSCode-15620-149733.json' -FeatureFlags @() 
+Process ID: 14740
+PSVersion: 5.1.19041.2673
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.2673
+BuildVersion: 10.0.19041.2673
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Code\Intune\ManualScripted_MDMEnrollment\CleanupStaleComputers\logs\2023-05-09_21-38-18_Disable_Computers.log
+2023-05-09 21:38:18 - Successfully disabled CPHA-NB012
+2023-05-09 21:38:18 - Successfully disabled CPHA20-NB02
+2023-05-09 21:38:18 - Successfully disabled CPHA-NB091
+2023-05-09 21:38:18 - Successfully disabled CPHA-MANAGE1
+2023-05-09 21:38:19 - Successfully disabled barracuda
+2023-05-09 21:38:19 - Successfully disabled CPHA-OLD-FS1
+2023-05-09 21:38:19 - Successfully disabled CPHA-APPSERVER
+2023-05-09 21:38:19 - Successfully disabled ACPHA-CMSBACK
+2023-05-09 21:38:19 - Successfully disabled ACPHA-CMS1
+2023-05-09 21:38:19 - Successfully disabled ACPHA-CMS2
+2023-05-09 21:38:19 - Successfully disabled CPHA-WEB
+2023-05-09 21:38:20 - Successfully disabled CPHA-SPR
+2023-05-09 21:38:20 - Successfully disabled CPHA-DEV-APP
+2023-05-09 21:38:20 - Successfully disabled CPHA-DEV-DB
+2023-05-09 21:38:20 - Successfully disabled CPHA-NB004
+2023-05-09 21:38:20 - Successfully disabled CPHA-TESTING
+2023-05-09 21:38:20 - Successfully disabled CPHA-NB003
+2023-05-09 21:38:20 - Successfully disabled CPHA-NB013
+2023-05-09 21:38:20 - Successfully disabled CPHA-UT1
+2023-05-09 21:38:21 - Successfully disabled TESTIMAGE
+2023-05-09 21:38:21 - Successfully disabled CPHA-WEBGB2
+2023-05-09 21:38:21 - Successfully disabled CPHA-NB024
+2023-05-09 21:38:21 - Successfully disabled CPHA-DEV
+2023-05-09 21:38:21 - Successfully disabled WIN-V332R2915E2
+2023-05-09 21:38:21 - Successfully disabled CPHA-NB010
+2023-05-09 21:38:21 - Successfully disabled CPHA-NB008
+2023-05-09 21:38:21 - Successfully disabled CPHA-WS053
+2023-05-09 21:38:21 - Successfully disabled CPHA-WS047
+2023-05-09 21:38:21 - Successfully disabled CPHA-WS55
+2023-05-09 21:38:21 - Successfully disabled CPHA-WS017
+2023-05-09 21:38:21 - Successfully disabled CPHA-SHORETEL
+2023-05-09 21:38:22 - Successfully disabled CPHA-VMM
+2023-05-09 21:38:22 - Successfully disabled CPHA-DEV-HOST
+2023-05-09 21:38:22 - Successfully disabled CPHA-VEEAM
+2023-05-09 21:38:22 - Successfully disabled CPHA-HOST03
+2023-05-09 21:38:22 - Successfully disabled P2V_TEMP
+2023-05-09 21:38:22 - Successfully disabled CPHA-NB029
+2023-05-09 21:38:22 - Successfully disabled CPHA2015-WS059
+2023-05-09 21:38:22 - Successfully disabled CPHA-VEEAM-HV
+2023-05-09 21:38:22 - Successfully disabled CPHA2015-WS049
+2023-05-09 21:38:22 - Successfully disabled CPHA-NB034
+2023-05-09 21:38:22 - Successfully disabled CPHA-WS057
+2023-05-09 21:38:22 - Successfully disabled CPHA2015-WS020
+2023-05-09 21:38:23 - Successfully disabled CPHA2015-WS013
+2023-05-09 21:38:23 - Successfully disabled CPHA2015-WS021
+2023-05-09 21:38:23 - Successfully disabled CPHA_IAN
+2023-05-09 21:38:23 - Successfully disabled CPHA2015-WS001
+2023-05-09 21:38:23 - Successfully disabled CPHA2015-WS016
+2023-05-09 21:38:23 - Successfully disabled CPHA2015-WS060
+2023-05-09 21:38:23 - Successfully disabled CPHA-WS054
+2023-05-09 21:38:23 - Successfully disabled CPHA-WS070
+2023-05-09 21:38:23 - Successfully disabled CPHA2015-WS009
+2023-05-09 21:38:23 - Successfully disabled CPHA2015-WS058
+2023-05-09 21:38:24 - Successfully disabled CPHA2015-WS027
+2023-05-09 21:38:24 - Successfully disabled CPHA2015-WS031
+2023-05-09 21:38:24 - Successfully disabled CPHA2015-WS006
+2023-05-09 21:38:24 - Successfully disabled CPHA-WS030
+2023-05-09 21:38:24 - Successfully disabled CPHA2015-WS017
+2023-05-09 21:38:24 - Successfully disabled CPHA2015-WS51
+2023-05-09 21:38:24 - Successfully disabled CPHA2015-WS55
+2023-05-09 21:38:24 - Successfully disabled CPHA-NB014
+2023-05-09 21:38:24 - Successfully disabled CPHA-SURFACE2
+2023-05-09 21:38:24 - Successfully disabled CPHA2015-WS044
+2023-05-09 21:38:24 - Successfully disabled ACM
+2023-05-09 21:38:25 - Successfully disabled ACMDEV
+2023-05-09 21:38:25 - Successfully disabled ASQL
+2023-05-09 21:38:25 - Successfully disabled ASQLDEV
+2023-05-09 21:38:25 - Successfully disabled APEDEV
+2023-05-09 21:38:25 - Successfully disabled CPHA2018-NB086
+2023-05-09 21:38:25 - Successfully disabled CPHA2015-WS063
+2023-05-09 21:38:25 - Successfully disabled CPHA2015-WS048
+2023-05-09 21:38:25 - Successfully disabled CPHA2015-WS002
+2023-05-09 21:38:25 - Successfully disabled CPHA2015-WS033
+2023-05-09 21:38:25 - Successfully disabled CPHA2015-WS037
+2023-05-09 21:38:25 - Successfully disabled CPHA2015-WS028
+2023-05-09 21:38:25 - Successfully disabled CPHA2015-WS024
+2023-05-09 21:38:26 - Successfully disabled CPHA2015-WS043
+2023-05-09 21:38:26 - Successfully disabled CPHA2015-WS038
+2023-05-09 21:38:26 - Successfully disabled CPHA2015-WS019
+2023-05-09 21:38:26 - Successfully disabled CPHA2015-WS004
+2023-05-09 21:38:26 - Successfully disabled CPHA2015-WS032
+2023-05-09 21:38:26 - Successfully disabled CPHA-NB011
+2023-05-09 21:38:26 - Successfully disabled CPHA2015-WS054
+2023-05-09 21:38:26 - Successfully disabled CPHA2015-NB007
+2023-05-09 21:38:26 - Successfully disabled CPHA2015-WS045
+2023-05-09 21:38:26 - Successfully disabled CPHA-NB38
+2023-05-09 21:38:26 - Successfully disabled CPHA-NB025
+2023-05-09 21:38:27 - Successfully disabled CPHA2015-WS034
+2023-05-09 21:38:27 - Successfully disabled CPHA2015-WS050
+2023-05-09 21:38:27 - Successfully disabled CPHA-NB022
+2023-05-09 21:38:27 - Successfully disabled CPHA2015-WS003
+2023-05-09 21:38:27 - Successfully disabled CPHA-NB019
+2023-05-09 21:38:27 - Successfully disabled CPHA-NB002
+2023-05-09 21:38:27 - Successfully disabled CPHA-NB017
+2023-05-09 21:38:27 - Successfully disabled CPHA-NB033
+2023-05-09 21:38:27 - Successfully disabled CPHA-NB027
+2023-05-09 21:38:27 - Successfully disabled CPHA2015-WS023
+2023-05-09 21:38:27 - Successfully disabled CPHA-WS101
+2023-05-09 21:38:28 - Successfully disabled CPHA2015-WS042
+2023-05-09 21:38:28 - Successfully disabled CPHA2015-WS039
+2023-05-09 21:38:28 - Successfully disabled CPHA2015-WS055
+2023-05-09 21:38:28 - Successfully disabled CPHA2015-WS029
+2023-05-09 21:38:28 - Successfully disabled CPHA-NB009
+2023-05-09 21:38:28 - Successfully disabled CPHA-NB023
+2023-05-09 21:38:28 - Successfully disabled CPHA-NB006
+2023-05-09 21:38:28 - Successfully disabled CPHA-NB026
+2023-05-09 21:38:28 - Successfully disabled CPHA-NB039
+2023-05-09 21:38:28 - Successfully disabled CPHA-NB032
+2023-05-09 21:38:29 - Successfully disabled CPHA-WS055
+2023-05-09 21:38:29 - Successfully disabled CPHA-SURFACE1
+2023-05-09 21:38:29 - Successfully disabled CPHA-NB041
+2023-05-09 21:38:29 - Successfully disabled CPHA-UTIL
+2023-05-09 21:38:29 - Successfully disabled CPHA2015-WS005
+2023-05-09 21:38:29 - Successfully disabled CPHA2015-NB017
+2023-05-09 21:38:29 - Successfully disabled CPHA2015-NB023
+2023-05-09 21:38:29 - Successfully disabled CPHA2015-NB011
+2023-05-09 21:38:29 - Successfully disabled CPHA-NB020
+2023-05-09 21:38:29 - Successfully disabled CPHA-NB001
+2023-05-09 21:38:29 - Successfully disabled CPHA2015-WS051
+2023-05-09 21:38:29 - Successfully disabled CPHA2015-WS012
+2023-05-09 21:38:29 - Successfully disabled CPHA2015-WS022
+2023-05-09 21:38:30 - Successfully disabled CPHA2015-WS067
+2023-05-09 21:38:30 - Successfully disabled CPHA2015-NB040
+2023-05-09 21:38:30 - Successfully disabled CPHA-2012-TEST
+2023-05-09 21:38:30 - Successfully disabled CPHA2017-NB079
+2023-05-09 21:38:30 - Successfully disabled CPHA2015-WS052
+2023-05-09 21:38:30 - Successfully disabled CPHA-NB015
+2023-05-09 21:38:30 - Successfully disabled CPHA-NB005
+2023-05-09 21:38:30 - Successfully disabled CPHA2017-NB075
+2023-05-09 21:38:30 - Successfully disabled CPHA2015-WS041
+2023-05-09 21:38:31 - Successfully disabled CPHA2015-WS026
+2023-05-09 21:38:31 - Successfully disabled CPHA-NB036
+2023-05-09 21:38:31 - Successfully disabled CPHA-NB037
+2023-05-09 21:38:31 - Successfully disabled CPHA-DEV-UTIL
+2023-05-09 21:38:31 - Successfully disabled CPHA-DEV-CI
+2023-05-09 21:38:31 - Successfully disabled CPHA-SURFACE4
+2023-05-09 21:38:31 - Successfully disabled CPHA2016-NB008
+2023-05-09 21:38:31 - Successfully disabled CPHA-NB018
+2023-05-09 21:38:31 - Successfully disabled CPHA2017-NB070
+2023-05-09 21:38:31 - Successfully disabled CPHA-NB042
+2023-05-09 21:38:32 - Successfully disabled CPHA2019-VM01
+2023-05-09 21:38:32 - Successfully disabled CPHA2015-WS036
+2023-05-09 21:38:32 - Successfully disabled CPHA-GP64
+2023-05-09 21:38:32 - Successfully disabled CPHA2015-WS068
+2023-05-09 21:38:32 - Successfully disabled CPHA2015-WS014
+2023-05-09 21:38:32 - Successfully disabled CPHA2015-WS056
+2023-05-09 21:38:32 - Successfully disabled CPHA2015-WS018
+2023-05-09 21:38:32 - Successfully disabled CPHA2015-WS061
+2023-05-09 21:38:32 - Successfully disabled CPHA2015-WS015
+2023-05-09 21:38:33 - Successfully disabled CPHA-WS015
+2023-05-09 21:38:33 - Successfully disabled CPHA-NB043
+2023-05-09 21:38:33 - Successfully disabled CPHA2015-NB032
+2023-05-09 21:38:33 - Successfully disabled CPHA-EX10V
+2023-05-09 21:38:33 - Successfully disabled CPHA2017-NB002
+2023-05-09 21:38:33 - Successfully disabled CPHA-SURFACE03
+2023-05-09 21:38:33 - Successfully disabled CPHA-SURFACE6
+2023-05-09 21:38:33 - Successfully disabled T440S_TEST
+2023-05-09 21:38:33 - Successfully disabled CPHA-NB028
+2023-05-09 21:38:33 - Successfully disabled CPHA2016-NB009
+2023-05-09 21:38:34 - Successfully disabled CPHA-NB021
+2023-05-09 21:38:34 - Successfully disabled WIN10-3A
+2023-05-09 21:38:34 - Successfully disabled WIN10-AK
+2023-05-09 21:38:34 - Successfully disabled CPHA2019-NB018
+2023-05-09 21:38:34 - Successfully disabled CPHA2017-NB069
+2023-05-09 21:38:34 - Successfully disabled CPHA-SURFACE5
+2023-05-09 21:38:34 - Successfully disabled CPHA-WGM1
+2023-05-09 21:38:34 - Successfully disabled CPHA-WGM2
+2023-05-09 21:38:34 - Successfully disabled CPHA-WEBGM
+2023-05-09 21:38:34 - Successfully disabled CPHA-WEBGM2
+2023-05-09 21:38:34 - Successfully disabled ASQL2017
+2023-05-09 21:38:35 - Successfully disabled APEDEV2017
+2023-05-09 21:38:35 - Successfully disabled ASQLDEV2017
+2023-05-09 21:38:35 - Successfully disabled ACMDEV2017
+2023-05-09 21:38:35 - Successfully disabled ACM2017
+2023-05-09 21:38:35 - Successfully disabled CPHA2017-NB039
+2023-05-09 21:38:35 - Successfully disabled CPHA2016-NB017
+2023-05-09 21:38:35 - Successfully disabled CPHA-VEEAMPROXY
+2023-05-09 21:38:35 - Successfully disabled cpha2018-imac01
+2023-05-09 21:38:35 - Successfully disabled CPHA-NB040
+2023-05-09 21:38:35 - Successfully disabled CPHA-NB035
+2023-05-09 21:38:36 - Successfully disabled CPHA-SURFACE08
+2023-05-09 21:38:36 - Successfully disabled CPHA2019-NB047
+2023-05-09 21:38:36 - Successfully disabled CPHA2015-WS025
+2023-05-09 21:38:36 - Successfully disabled CPHA2019-NB015
+2023-05-09 21:38:36 - Successfully disabled CPHA-WS011
+2023-05-09 21:38:36 - Successfully disabled CPHA2017-NB067
+2023-05-09 21:38:36 - Successfully disabled CPHA2018-NB084
+2023-05-09 21:38:36 - Successfully disabled CPHA2016-NB001
+2023-05-09 21:38:36 - Successfully disabled CPHA2015-WS064
+2023-05-09 21:38:36 - Successfully disabled CPHA-BACKUP1
+2023-05-09 21:38:36 - Successfully disabled CPHA2021-NB013
+2023-05-09 21:38:36 - Successfully disabled CPHA-APLUS
+2023-05-09 21:38:37 - Successfully disabled CPHA2019-NB011
+2023-05-09 21:38:37 - Successfully disabled CPHA2018-NB083
+2023-05-09 21:38:37 - Successfully disabled CPHA2017-NB017
+2023-05-09 21:38:37 - Successfully disabled CPHA2017-NB076
+2023-05-09 21:38:37 - Successfully disabled CPHA-W10
+2023-05-09 21:38:37 - Successfully disabled CPHA2017-NB080
+2023-05-09 21:38:37 - Successfully disabled CPHA2017-NB073
+2023-05-09 21:38:37 - Successfully disabled CPHA-SURFACE07
+2023-05-09 21:38:37 - Successfully disabled CPHA2022-NB005
+2023-05-09 21:38:37 - Successfully disabled CPHA2019-NB032
+2023-05-09 21:38:37 - Successfully disabled CPHA2019-NB028
+2023-05-09 21:38:38 - Successfully disabled CPHA2017-NB074
+2023-05-09 21:38:38 - Successfully disabled CPHA2019-NB017
+2023-05-09 21:38:38 - Successfully disabled CPHA2019-NB030
+2023-05-09 21:38:38 - Successfully disabled CPHA2019-NB023
+2023-05-09 21:38:38 - Successfully disabled DESKTOP-O3VMVSQ
+2023-05-09 21:38:38 - Successfully disabled CPHA2017-NB026
+2023-05-09 21:38:38 - Total computers disabled: 209
+**********************
+Windows PowerShell transcript end
+End time: 20230509213838
+**********************

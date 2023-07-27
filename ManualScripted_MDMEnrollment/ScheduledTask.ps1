@@ -1,0 +1,2 @@
+-ExecutionPolicy Bypass -File \\cpha-fs1\MDMDiagnostics\EnrollMDM.ps1
+-ExecutionPolicy Bypass -File \\cpha-fs1\MDMDiagnostics\FixHAADJPendingReg.ps1
