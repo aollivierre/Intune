@@ -8,153 +8,8 @@ if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
     Break
 }
 
-# Placeholder for Install-RequireModules function
 
-
-#TODO func2 Install-RequiredModules
-function Install-RequiredModules {
-
-    # $requiredModules = @("Microsoft.Graph", "Microsoft.Graph.Authentication")
-    $requiredModules = @("Microsoft.Graph.Intune")
-
-    foreach ($module in $requiredModules) {
-        if (!(Get-Module -ListAvailable -Name $module)) {
-
-            write-host "Installing module: $module"
-            Install-Module -Name $module -Force
-            write-host "Module: $module has been installed"
-        }
-        else {
-            write-host "Module $module is already installed"
-        }
-    }
-
-
-    # $ImportedModules = @("Microsoft.Graph.Identity.DirectoryManagement", "Microsoft.Graph.Authentication")
-    $ImportedModules = @("Microsoft.Graph.Intune")
-    
-    foreach ($Importedmodule in $ImportedModules) {
-        if ((Get-Module -ListAvailable -Name $Importedmodule)) {
-            write-host "Importing module: $Importedmodule"
-            Import-Module -Name $Importedmodule
-            write-host "Module: $Importedmodule has been Imported"
-        }
-    }
-
-    # Install Remote Server Administration Tools (RSAT) and import ActiveDirectory module
-    if (!(Get-WindowsCapability -Name Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0 -Online | Where-Object { $_.State -eq "Installed" })) {
-        Add-WindowsCapability -Name Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0 -Online
-    }
-    else {
-
-        write-host "Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0 is already installed."
-    }
-
-    Import-Module ActiveDirectory
-}
-# Call the function to install the required modules and dependencies
-Install-RequiredModules
-write-host "All modules installed"
-
-
-
-
-# Placeholder to copy the MG Graph and use the new Get-MG cmdlets
-
-
-#TODO func3 Get-MicrosoftGraphAccessToken
-function Get-MicrosoftGraphAccessToken {
-    $tokenBody = @{
-        Grant_Type    = 'client_credentials'  
-        Scope         = 'https://graph.microsoft.com/.default'  
-        Client_Id     = $clientId  
-        Client_Secret = $clientSecret
-    }  
-
-    $tokenResponse = Invoke-RestMethod -Uri "https://login.microsoftonline.com/$TenantName/oauth2/v2.0/token" -Method POST -Body $tokenBody -ErrorAction Stop
-
-    return $tokenResponse.access_token
-}
-
-
-$accessToken = Get-MicrosoftGraphAccessToken
-
-
-
-
-#TODO func4 Connect-Graph
-function Connect-Graph {
-
-    [CmdletBinding()]
-    # [Alias("Connect-MSGraph2", "Connect-MSGraphApp2")]
-    #TODO Defining TenantID, TenantName, ClientID, ClientSecret
-    param (
-        [string] $TenantID = "7bafa247-244f-431e-9bb1-739c81d19fb2",
-        [string] $Tenantname = "pharmacists.ca"
-        ,
-        [string] $clientId = "401add67-6c6e-494c-8501-bee62c16c924"
-        ,
-        [string] $clientSecret = "FGn8Q~9qxPCLd9TD6YYPh9wi0s0dxjCgMYlyCdp5"
-    )
-
-
-
-
-    
-
-    #TODO Defining Get-MicrosoftGraphAccessToken
-    function Get-MicrosoftGraphAccessToken {
-        $tokenBody = @{
-            Grant_Type    = 'client_credentials'  
-            Scope         = 'https://graph.microsoft.com/.default'  
-            Client_Id     = $clientId  
-            Client_Secret = $clientSecret
-        }  
-
-        $tokenResponse = Invoke-RestMethod -Uri "https://login.microsoftonline.com/$TenantName/oauth2/v2.0/token" -Method POST -Body $tokenBody -ErrorAction Stop
-
-        return $tokenResponse.access_token
-    }
-
-    #TODO Calling Get-MicrosoftGraphAccessToken
-    $accessToken = Get-MicrosoftGraphAccessToken
-
-    if ($TenantId -and $AppId -and $AppSecret) {
-        # $graph = Connect-MSGraphApp -Tenant $TenantId -AppId $AppId -AppSecret $AppSecret -ea Stop
-
-        #TODO Calling Connect-MgGraph (IF conditions were met)
-        $graph = Connect-MgGraph -AccessToken $accessToken
-        Write-Verbose "Connected to Intune tenant $TenantId using app-based authentication (Azure AD authentication not supported)"
-    }
-    else {
-        # $graph = Connect-MSGraph -ea Stop
-
-        #TODO Calling Connect-MgGraph (IF conditions were not met)
-        $graph = Connect-MgGraph -AccessToken $accessToken
-        Write-Verbose "Connected to Intune tenant $($graph.TenantId)"
-    }
-}
-
-
-# Placeholder to replace the following in the Reset-IntuneEnrollment Script
-# c. Placeholder to pause the script until the admin initiates a Start-AdSyncSynccycle after leaving dsregcmd /status
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#TODO func5 Reset-IntuneEnrollment
+#TODO (MAIN) func5 Reset-IntuneEnrollment
 function Reset-IntuneEnrollment {
     <#
     .SYNOPSIS
@@ -189,91 +44,11 @@ function Reset-IntuneEnrollment {
 
 
     #TODO region helper functions
-    #TODO func4 Connect-Graph
-    function Connect-Graph {
-        <#
-        .SYNOPSIS
-        Function for connecting to Microsoft Graph.
-
-        .DESCRIPTION
-        Function for connecting to Microsoft Graph.
-        Support interactive authentication or application authentication
-        Without specifying any parameters, interactive auth. will be used.
-
-        .PARAMETER TenantId
-        ID of your tenant.
-
-        Default is "e4fb6bec-b1f4-46dc-9ab8-c67549adc56d"
-
-        .PARAMETER AppId
-        Azure AD app ID (GUID) for the application that will be used to authenticate
-
-        .PARAMETER AppSecret
-        Specifies the Azure AD app secret corresponding to the app ID that will be used to authenticate.
-        Can be generated in Azure > 'App Registrations' > SomeApp > 'Certificates & secrets > 'Client secrets'.
-
-        .PARAMETER Beta
-        Set schema to beta.
-
-        .EXAMPLE
-        Connect-Graph
-
-        .NOTES
-        Requires module Microsoft.Graph.Intune
-        #>
-
-        [CmdletBinding()]
-        # [Alias("Connect-MSGraph2", "Connect-MSGraphApp2")]
-        param (
-            [string] $TenantID = "7bafa247-244f-431e-9bb1-739c81d19fb2",
-            [string] $Tenantname = "pharmacists.ca"
-            ,
-            [string] $clientId = "401add67-6c6e-494c-8501-bee62c16c924"
-            ,
-            [string] $clientSecret = "FGn8Q~9qxPCLd9TD6YYPh9wi0s0dxjCgMYlyCdp5"
-        )
+  
 
 
 
-
-        
-        #TODO Defining func3 Get-MicrosoftGraphAccessToken
-        function Get-MicrosoftGraphAccessToken {
-            $tokenBody = @{
-                Grant_Type    = 'client_credentials'  
-                Scope         = 'https://graph.microsoft.com/.default'  
-                Client_Id     = $clientId  
-                Client_Secret = $clientSecret
-            }  
-    
-            $tokenResponse = Invoke-RestMethod -Uri "https://login.microsoftonline.com/$TenantName/oauth2/v2.0/token" -Method POST -Body $tokenBody -ErrorAction Stop
-    
-            return $tokenResponse.access_token
-        }
-
-        #TODO Calling func3 Get-MicrosoftGraphAccessToken
-        $accessToken = Get-MicrosoftGraphAccessToken
-
-        if ($TenantId -and $AppId -and $AppSecret) {
-            # $graph = Connect-MSGraphApp -Tenant $TenantId -AppId $AppId -AppSecret $AppSecret -ea Stop
-
-
-            # TODO Calling Connect-MgGraph (IF conditions were met)
-            $graph = Connect-MgGraph -AccessToken $accessToken
-            Write-Verbose "Connected to Intune tenant $TenantId using app-based authentication (Azure AD authentication not supported)"
-        }
-        else {
-            # $graph = Connect-MSGraph -ea Stop
-
-            #TODO Calling Connect-MgGraph (IF conditions were not met)
-            $graph = Connect-MgGraph -AccessToken $accessToken
-            Write-Verbose "Connected to Intune tenant $($graph.TenantId)"
-        }
-    }
-
-
-
-    #TODO func6 Invoke-MDMReenrollment
+    #TODO func6 Begin Defining Invoke-MDMReenrollment
     function Invoke-MDMReenrollment {
         <#
         .SYNOPSIS
@@ -369,17 +144,6 @@ function Reset-IntuneEnrollment {
                 if (![string]::IsNullOrEmpty($EnrollmentGUID)) {
                     Write-Host "Current enrollment GUID detected as $([string]$EnrollmentGUID)"
 
-                    # TODO Stop Intune Management Exention Agent and CCM Agent services
-                    Write-Host "Stopping MDM services"
-                    if (Get-Service -Name IntuneManagementExtension -ErrorAction SilentlyContinue) {
-                        Write-Host " - Stopping IntuneManagementExtension service..."
-                        Stop-Service -Name IntuneManagementExtension
-                    }
-                    if (Get-Service -Name CCMExec -ErrorAction SilentlyContinue) {
-                        Write-Host " - Stopping CCMExec service..."
-                        Stop-Service -Name CCMExec
-                    }
-
                     # TODO Remove task scheduler entries
                     Write-Host "Removing task scheduler Enterprise Management entries for GUID - $([string]$EnrollmentGUID)"
                     Get-ScheduledTask | Where-Object { $_.Taskpath -match $EnrollmentGUID } | Unregister-ScheduledTask -Confirm:$false
@@ -387,6 +151,7 @@ function Reset-IntuneEnrollment {
 
                     # $EnrollmentGUID = "your-enrollment-guid-here"
 
+                    #TODO Calling Remove-Item against Task Sched for EnterpriseMgmt and EnterpriseMgmtNoncritical
                     try {
                         $taskPath1 = "$env:WINDIR\System32\Tasks\Microsoft\Windows\EnterpriseMgmt\$EnrollmentGUID"
                         $taskPath2 = "$env:WINDIR\System32\Tasks\Microsoft\Windows\EnterpriseMgmtNoncritical\$EnrollmentGUID"
@@ -404,7 +169,7 @@ function Reset-IntuneEnrollment {
 
                     # delete also parent folder
                     # Remove-Item -Path "$env:WINDIR\System32\Tasks\Microsoft\Windows\EnterpriseMgmt\$EnrollmentGUID" -Force
-
+                    #TODO Calling Remove-Item against Regedit for Enrollments and PolicyManager and Provisioning
                     $RegistryKeys = "HKLM:\SOFTWARE\Microsoft\Enrollments", "HKLM:\SOFTWARE\Microsoft\Enrollments\Status", "HKLM:\SOFTWARE\Microsoft\EnterpriseResourceManager\Tracked", "HKLM:\SOFTWARE\Microsoft\PolicyManager\AdmxInstalled", "HKLM:\SOFTWARE\Microsoft\PolicyManager\Providers", "HKLM:\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts", "HKLM:\SOFTWARE\Microsoft\Provisioning\OMADM\Logger", "HKLM:\SOFTWARE\Microsoft\Provisioning\OMADM\Sessions"
                     foreach ($Key in $RegistryKeys) {
                         Write-Host "Processing registry key $Key"
@@ -468,7 +233,8 @@ function Reset-IntuneEnrollment {
     }
 
 
-    #TODO func7 Get-IntuneLog
+    #TODO func6 End of Defining Invoke-MDMReenrollment
+    #TODO func7 Begin Defining Get-IntuneLog
     function Get-IntuneLog {
         <#
         .SYNOPSIS
@@ -499,114 +265,6 @@ function Reset-IntuneEnrollment {
             $computerName = $null
         }
 
-
-
-        #TODO func8 _openLog
-        function _openLog {
-            param (
-                [string[]] $logs
-            )
-
-            if (!$logs) { return }
-
-            #TODO use best possible log viewer
-            $cmLogViewer = "C:\Program Files (x86)\Microsoft Endpoint Manager\AdminConsole\bin\CMLogViewer.exe"
-            $cmTrace = "$env:windir\CCM\CMTrace.exe"
-            if (Test-Path $cmLogViewer) {
-                $viewer = $cmLogViewer
-            }
-            elseif (Test-Path $cmTrace) {
-                $viewer = $cmTrace
-            }
-
-            if ($viewer -and $viewer -match "CMLogViewer\.exe$") {
-                # open all logs in one CMLogViewer instance
-                $quotedLog = ($logs | % {
-                        "`"$_`""
-                    }) -join " "
-
-                #Calling CMLogViewer
-                Start-Process $viewer -ArgumentList $quotedLog
-            }
-            else {
-                # cmtrace (or notepad) don't support opening multiple logs in one instance, so open each log in separate viewer process
-                foreach ($log in $logs) {
-                    if (!(Test-Path $log -ErrorAction SilentlyContinue)) {
-                        Write-Warning "Log $log wasn't found"
-                        continue
-                    }
-
-                    Write-Verbose "Opening $log"
-                    if ($viewer -and $viewer -match "CMTrace\.exe$") {
-                        # in case CMTrace viewer exists, use it
-                        # Start-Process $viewer -ArgumentList "`"$log`""
-                    }
-                    else {
-                        # use associated viewer
-                        & $log
-                    }
-                }
-            }
-        }
-
-        # open main Intune logs
-        $log = "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs"
-        if ($computerName) {
-            $log = "\\$computerName\" + ($log -replace ":", "$")
-        }
-        "opening logs in '$log'"
-
-        #TODO Calling _openLog
-        # _openLog (Get-ChildItem $log -File | select -exp fullname)
-
-        # When a PowerShell script is run on the client from Intune, the scripts and the script output will be stored here, but only until execution is complete
-        $log = "C:\Program files (x86)\Microsoft Intune Management Extension\Policies\Scripts"
-        if ($computerName) {
-            $log = "\\$computerName\" + ($log -replace ":", "$")
-        }
-        "opening logs in '$log'"
-        #TODO Calling _openLog
-        # _openLog (Get-ChildItem $log -File -ea SilentlyContinue | select -exp fullname)
-
-        $log = "C:\Program files (x86)\Microsoft Intune Management Extension\Policies\Results"
-        if ($computerName) {
-            $log = "\\$computerName\" + ($log -replace ":", "$")
-        }
-        "opening logs in '$log'"
-
-        #TODO Calling _openLog
-        # _openLog (Get-ChildItem $log -File -ea SilentlyContinue | select -exp fullname)
-
-        #TODO open Event Viewer with Intune Log
-        "opening event log 'Microsoft-Windows-DeviceManagement-Enterprise-Diagnostics-Provider/Admin'"
-        if ($computerName) {
-            Write-Warning "Opening remote Event Viewer can take significant time!"
-            #TODO Opening Event Viewer
-            # mmc.exe eventvwr.msc /computer:$computerName /c:"Microsoft-Windows-DeviceManagement-Enterprise-Diagnostics-Provider/Admin"
-        }
-        else {
-            #TODO Opening Event Viewer (IF not computer name)
-            # mmc.exe eventvwr.msc /c:"Microsoft-Windows-DeviceManagement-Enterprise-Diagnostics-Provider/Admin"
-        }
-
-        #TODO generate & open MDMDiagReport
-        "generating & opening MDMDiagReport"
-        if ($computerName) {
-            #TODO calling MdmDiagnosticsTool.exe (IF computername)
-            # Write-Warning "TODO (zatim delej tak, ze spustis tuto fci lokalne pod uzivatelem, jehoz vysledky chces zjistit"
-        }
-        else {
-
-            #TODO calling MdmDiagnosticsTool.exe (IF NO computername)
-            # Start-Process MdmDiagnosticsTool.exe -Wait -ArgumentList "-out $env:TEMP\MDMDiag" -NoNewWindow
-            # & "$env:TEMP\MDMDiag\MDMDiagReport.html"
-        }
-
-        # vygeneruje spoustu bordelu do jednoho zip souboru vhodneho k poslani mailem (bacha muze mit vic jak 5MB)
-
-        #TODO Calling MdmDiagnosticsTool.exe (No Conditions)
-        # Start-Process MdmDiagnosticsTool.exe -ArgumentList "-area Autopilot;DeviceEnrollment;DeviceProvisioning;TPM -zip C:\temp\aaa.zip" -Verb runas
-
         # show DM info
         #TODO Checking HKLM:SOFTWARE\Microsoft\Enrollments
         $param = @{
@@ -617,19 +275,11 @@ function Reset-IntuneEnrollment {
         }
         Invoke-Command @param | Format-Table
 
-        # $regKey = "Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\IntuneManagementExtension\SideCarPolicies\Scripts"
-        # if (!(Get-Process regedit)) {
-        #     # set starting location for regedit
-        #     Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Applets\Regedit LastKey $regKey
-        #     # open regedit
-        # } else {
-        #     "To check script last run time and result check $regKey in regedit or logs located in C:\Program files (x86)\Microsoft Intune Management Extension\Policies"
-        # }
-        # regedit.exe
+    
     }
 
-
-    #TODO func9 Reset-HybridADJoin
+    #TODO func7 End of Defining Get-IntuneLog
+    #TODO func9 Begin Defining Reset-HybridADJoin
     #Reset-HybridADJoin
     function Reset-HybridADJoin {
         <#
@@ -901,19 +551,6 @@ function Reset-IntuneEnrollment {
                 }
 
 
-                #TODO Un-joining $env:COMPUTERNAME from Azure
-                "Un-joining $env:COMPUTERNAME from Azure"
-                Write-Verbose "by running: Invoke-AsSystem { dsregcmd.exe /leave /debug } -returnTranscript"
-
-                #TODO Calling dsregcmd.exe /leave /debug (AS SYSTEM)
-                Invoke-AsSystem { dsregcmd.exe /leave /debug } #-returnTranscript
-
-                Start-Sleep 5
-                Get-ChildItem 'Cert:\LocalMachine\My\' | ? { $_.Issuer -match "MS-Organization-Access|MS-Organization-P2P-Access \[\d+\]" } | % {
-                    Write-Host "Removing leftover Hybrid-Join certificate $($_.DnsNameList.Unicode)" -ForegroundColor Cyan
-                    Remove-Item $_.PSPath
-                }
-
 
                 #TODO checking dsregcmd.exe /status
                 $dsreg = dsregcmd.exe /status
@@ -989,8 +626,8 @@ function Reset-IntuneEnrollment {
         Invoke-Command @param
     }
 
-
-    #TODO func11 Get-IntuneEnrollmentStatus
+    #TODO func9 End of Defining Reset-HybridADJoin
+    #TODO func11 Begin Defining Get-IntuneEnrollmentStatus
     function Get-IntuneEnrollmentStatus {
         <#
         .SYNOPSIS
@@ -1039,79 +676,13 @@ function Reset-IntuneEnrollment {
 
         if (!$computerName) { $computerName = $env:COMPUTERNAME }
 
-        #TODO region get Intune data
-        if ($checkIntuneToo) {
-            $ErrActionPreference = $ErrorActionPreference
-            $ErrorActionPreference = "Stop"
-
-
-            #TODO Calling Get-ADComputer
-            try {
-                if (Get-Command Get-ADComputer -ErrorAction SilentlyContinue) {
-                    $ADObj = Get-ADComputer -Filter "Name -eq '$computerName'" -Properties Name, ObjectGUID
-                }
-                else {
-                    Write-Verbose "Get-ADComputer command is missing, unable to get device GUID"
-                }
-
-
-                #TODO Calling Connect-Graph
-                Connect-Graph
-
-                $intuneObj = @()
-
-                # $intuneObj += Get-IntuneManagedDevice -Filter "DeviceName eq '$computerName'"
-
-                #TODO Calling Get-MgDeviceManagementManagedDevice 
-                $intuneObj += Get-MgDeviceManagementManagedDevice -Filter "DeviceName eq '$computerName'"
-
-                if ($ADObj.ObjectGUID) {
-                    # because of bug? computer can be listed under guid_date name in cloud
-                    # $intuneObj += Get-IntuneManagedDevice -Filter "azureADDeviceId eq '$($ADObj.ObjectGUID)'" | ? DeviceName -NE $computerName
-
-                    #TODO Calling Get-MgDeviceManagementManagedDevice (conditional)
-                    $intuneObj += Get-MgDeviceManagementManagedDevice -Filter "azureADDeviceId eq '$($ADObj.ObjectGUID)'" | ? DeviceName -NE $computerName
-                }
-            }
-            catch {
-                Write-Warning "Unable to get information from Intune. $_"
-
-                # to avoid errors that device is missing from Intune
-                $intuneObj = 1
-            }
-
-            $ErrorActionPreference = $ErrActionPreference
-        }
-        #endregion get Intune data
+  
 
         $scriptBlock = {
             param ($checkIntuneToo, $intuneObj)
 
             $intuneNotJoined = 0
 
-            #TODO region Intune checks
-            if ($checkIntuneToo) {
-                if (!$intuneObj) {
-                    ++$intuneNotJoined
-                    Write-Warning "Device is missing from Intune!"
-                }
-
-                if ($intuneObj.count -gt 1) {
-                    Write-Warning "Device is listed $($intuneObj.count) times in Intune"
-                }
-
-                $wrongIntuneName = $intuneObj.DeviceName | ? { $_ -ne $env:COMPUTERNAME }
-                if ($wrongIntuneName) {
-                    Write-Warning "Device is named as $wrongIntuneName in Intune"
-                }
-
-                $correctIntuneName = $intuneObj.DeviceName | ? { $_ -eq $env:COMPUTERNAME }
-                if ($intuneObj -and !$correctIntuneName) {
-                    ++$intuneNotJoined
-                    Write-Warning "Device has no record in Intune with correct device name"
-                }
-            }
-            #endregion Intune checks
 
             #TODO region dsregcmd checks
             $dsregcmd = dsregcmd.exe /status
@@ -1142,7 +713,7 @@ function Reset-IntuneEnrollment {
             #endregion certificate checks
 
             #TODO region sched. task checks
-            $MDMSchedTask = Get-ScheduledTask | ? { $_.TaskPath -like "*Microsoft*Windows*EnterpriseMgmt\*" -and $_.TaskName -eq "PushLaunch" }
+            $MDMSchedTask = Get-ScheduledTask | Where-Object { $_.TaskPath -like "*Microsoft*Windows*EnterpriseMgmt\*" -and $_.TaskName -eq "PushLaunch" }
             $enrollmentGUID = $MDMSchedTask | Select-Object -ExpandProperty TaskPath -Unique | ? { $_ -like "*-*-*" } | Split-Path -Leaf
             if (!$enrollmentGUID) {
                 ++$intuneNotJoined
@@ -1157,7 +728,7 @@ function Reset-IntuneEnrollment {
                 foreach ($key in $registryKeys) {
                     if (!(Get-ChildItem -Path $key -ea SilentlyContinue | Where-Object { $_.Name -match $enrollmentGUID })) {
                         Write-Warning "Registry key $key is missing"
-                        ++$intuneNotJoined
+                        # ++$intuneNotJoined
                     }
                 }
             }
@@ -1192,6 +763,7 @@ function Reset-IntuneEnrollment {
 
         Invoke-Command @param
     }
+    #TODO func11 End of Defining Get-IntuneEnrollmentStatus
     #endregion helper functions
 
     #TODO checking Intune Connection Status
@@ -1208,61 +780,10 @@ function Reset-IntuneEnrollment {
         }
     }
 
-    #TODO calling Reset-HybridADJoin
-    Write-Host "Resetting Hybrid AzureAD connection" -ForegroundColor Cyan
-    Reset-HybridADJoin -computerName $computerName
 
-    #TODO Sleeping after calling Reset-HybridADJoin
-    Write-Host "Waiting" -ForegroundColor Cyan
-    Start-Sleep 10
 
-    Write-Host "Removing $computerName records from Intune" -ForegroundColor Cyan
-    # to discover cases when device is in Intune named as GUID_date
 
-    #TODO Calling Get-ADComputer
-    if (Get-Command Get-ADComputer -ErrorAction SilentlyContinue) {
-        $ADObj = Get-ADComputer -Filter "Name -eq '$computerName'" -Properties Name, ObjectGUID
-    }
-    else {
-        Write-Verbose "AD module is missing, unable to obtain computer GUID"
-    }
 
-    #TODO region get Intune data
-
-    #TODO Calling Connect-Graph
-    Connect-Graph
-
-    $IntuneObj = @()
-
-    # $IntuneObj += Get-IntuneManagedDevice -Filter "DeviceName eq '$computerName'"
-
-    #TODO Calling Get-MgDeviceManagementManagedDevice
-    $IntuneObj += Get-MgDeviceManagementManagedDevice -Filter "DeviceName eq '$computerName'"
-
-    if ($ADObj.ObjectGUID) {
-        # because of bug? computer can be listed under guid_date name in cloud
-        # $IntuneObj += Get-IntuneManagedDevice -Filter "azureADDeviceId eq '$($ADObj.ObjectGUID)'" | ? DeviceName -NE $computerName
-
-        #TODO Calling Get-MgDeviceManagementManagedDevice (conditional)
-        $IntuneObj += Get-MgDeviceManagementManagedDevice -Filter "azureADDeviceId eq '$($ADObj.ObjectGUID)'" | ? DeviceName -NE $computerName
-    }
-    #endregion get Intune data
-
-    #region remove computer record in Intune
-    if ($IntuneObj) {
-        $IntuneObj | ? { $_ } | % {
-            Write-Host "Removing $($_.DeviceName) ($($_.id)) from Intune" -ForegroundColor Cyan
-            # Remove-IntuneManagedDevice -managedDeviceId $_.id
-            # Remove-MgDeviceManagementManagedDevice -DeviceId $deviceId
-
-            #TODO Calling func Remove-MgDeviceManagementManagedDevice
-            Remove-MgDeviceManagementManagedDevice -ManagedDeviceId $_.id
-        }
-    }
-    else {
-        Write-Host "$computerName nor its guid exists in Intune. Skipping removal." -ForegroundColor DarkCyan
-    }
-    #endregion remove computer record in Intune
 
     Write-Host "Invoking re-enrollment of Intune connection" -ForegroundColor Cyan
     #TODO Calling Invoke-MDMReenrollment
@@ -1281,15 +802,11 @@ function Reset-IntuneEnrollment {
 
     if ($i -eq 0) {
         Write-Warning "Intune certificate (issuer: Microsoft Intune MDM Device CA) isn't created (yet?)"
-
-        "Opening Intune logs"
-        #TODO Calling Get-IntuneLog
-        Get-IntuneLog -computerName $computerName
     }
     else {
         Write-Host "DONE :)" -ForegroundColor Green
     }
 }
-#TODO Calling Reset-IntuneEnrollment
+#TODO (MAIN) Calling func5 Reset-IntuneEnrollment
 Reset-IntuneEnrollment
 

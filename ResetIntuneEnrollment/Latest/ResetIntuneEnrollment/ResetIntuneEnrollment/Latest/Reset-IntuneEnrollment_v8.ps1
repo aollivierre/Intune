@@ -8,153 +8,8 @@ if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
     Break
 }
 
-# Placeholder for Install-RequireModules function
 
-
-#TODO func2 Install-RequiredModules
-function Install-RequiredModules {
-
-    # $requiredModules = @("Microsoft.Graph", "Microsoft.Graph.Authentication")
-    $requiredModules = @("Microsoft.Graph.Intune")
-
-    foreach ($module in $requiredModules) {
-        if (!(Get-Module -ListAvailable -Name $module)) {
-
-            write-host "Installing module: $module"
-            Install-Module -Name $module -Force
-            write-host "Module: $module has been installed"
-        }
-        else {
-            write-host "Module $module is already installed"
-        }
-    }
-
-
-    # $ImportedModules = @("Microsoft.Graph.Identity.DirectoryManagement", "Microsoft.Graph.Authentication")
-    $ImportedModules = @("Microsoft.Graph.Intune")
-    
-    foreach ($Importedmodule in $ImportedModules) {
-        if ((Get-Module -ListAvailable -Name $Importedmodule)) {
-            write-host "Importing module: $Importedmodule"
-            Import-Module -Name $Importedmodule
-            write-host "Module: $Importedmodule has been Imported"
-        }
-    }
-
-    # Install Remote Server Administration Tools (RSAT) and import ActiveDirectory module
-    if (!(Get-WindowsCapability -Name Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0 -Online | Where-Object { $_.State -eq "Installed" })) {
-        Add-WindowsCapability -Name Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0 -Online
-    }
-    else {
-
-        write-host "Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0 is already installed."
-    }
-
-    Import-Module ActiveDirectory
-}
-# Call the function to install the required modules and dependencies
-Install-RequiredModules
-write-host "All modules installed"
-
-
-
-
-# Placeholder to copy the MG Graph and use the new Get-MG cmdlets
-
-
-#TODO func3 Get-MicrosoftGraphAccessToken
-function Get-MicrosoftGraphAccessToken {
-    $tokenBody = @{
-        Grant_Type    = 'client_credentials'  
-        Scope         = 'https://graph.microsoft.com/.default'  
-        Client_Id     = $clientId  
-        Client_Secret = $clientSecret
-    }  
-
-    $tokenResponse = Invoke-RestMethod -Uri "https://login.microsoftonline.com/$TenantName/oauth2/v2.0/token" -Method POST -Body $tokenBody -ErrorAction Stop
-
-    return $tokenResponse.access_token
-}
-
-
-$accessToken = Get-MicrosoftGraphAccessToken
-
-
-
-
-#TODO func4 Connect-Graph
-function Connect-Graph {
-
-    [CmdletBinding()]
-    # [Alias("Connect-MSGraph2", "Connect-MSGraphApp2")]
-    #TODO Defining TenantID, TenantName, ClientID, ClientSecret
-    param (
-        [string] $TenantID = "7bafa247-244f-431e-9bb1-739c81d19fb2",
-        [string] $Tenantname = "pharmacists.ca"
-        ,
-        [string] $clientId = "401add67-6c6e-494c-8501-bee62c16c924"
-        ,
-        [string] $clientSecret = "FGn8Q~9qxPCLd9TD6YYPh9wi0s0dxjCgMYlyCdp5"
-    )
-
-
-
-
-    
-
-    #TODO Defining Get-MicrosoftGraphAccessToken
-    function Get-MicrosoftGraphAccessToken {
-        $tokenBody = @{
-            Grant_Type    = 'client_credentials'  
-            Scope         = 'https://graph.microsoft.com/.default'  
-            Client_Id     = $clientId  
-            Client_Secret = $clientSecret
-        }  
-
-        $tokenResponse = Invoke-RestMethod -Uri "https://login.microsoftonline.com/$TenantName/oauth2/v2.0/token" -Method POST -Body $tokenBody -ErrorAction Stop
-
-        return $tokenResponse.access_token
-    }
-
-    #TODO Calling Get-MicrosoftGraphAccessToken
-    $accessToken = Get-MicrosoftGraphAccessToken
-
-    if ($TenantId -and $AppId -and $AppSecret) {
-        # $graph = Connect-MSGraphApp -Tenant $TenantId -AppId $AppId -AppSecret $AppSecret -ea Stop
-
-        #TODO Calling Connect-MgGraph (IF conditions were met)
-        $graph = Connect-MgGraph -AccessToken $accessToken
-        Write-Verbose "Connected to Intune tenant $TenantId using app-based authentication (Azure AD authentication not supported)"
-    }
-    else {
-        # $graph = Connect-MSGraph -ea Stop
-
-        #TODO Calling Connect-MgGraph (IF conditions were not met)
-        $graph = Connect-MgGraph -AccessToken $accessToken
-        Write-Verbose "Connected to Intune tenant $($graph.TenantId)"
-    }
-}
-
-
-# Placeholder to replace the following in the Reset-IntuneEnrollment Script
-# c. Placeholder to pause the script until the admin initiates a Start-AdSyncSynccycle after leaving dsregcmd /status
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#TODO func5 Reset-IntuneEnrollment
+#TODO (MAIN) func5 Reset-IntuneEnrollment
 function Reset-IntuneEnrollment {
     <#
     .SYNOPSIS
@@ -189,91 +44,11 @@ function Reset-IntuneEnrollment {
 
 
     #TODO region helper functions
-    #TODO func4 Connect-Graph
-    function Connect-Graph {
-        <#
-        .SYNOPSIS
-        Function for connecting to Microsoft Graph.
-
-        .DESCRIPTION
-        Function for connecting to Microsoft Graph.
-        Support interactive authentication or application authentication
-        Without specifying any parameters, interactive auth. will be used.
-
-        .PARAMETER TenantId
-        ID of your tenant.
-
-        Default is "e4fb6bec-b1f4-46dc-9ab8-c67549adc56d"
-
-        .PARAMETER AppId
-        Azure AD app ID (GUID) for the application that will be used to authenticate
-
-        .PARAMETER AppSecret
-        Specifies the Azure AD app secret corresponding to the app ID that will be used to authenticate.
-        Can be generated in Azure > 'App Registrations' > SomeApp > 'Certificates & secrets > 'Client secrets'.
-
-        .PARAMETER Beta
-        Set schema to beta.
-
-        .EXAMPLE
-        Connect-Graph
-
-        .NOTES
-        Requires module Microsoft.Graph.Intune
-        #>
-
-        [CmdletBinding()]
-        # [Alias("Connect-MSGraph2", "Connect-MSGraphApp2")]
-        param (
-            [string] $TenantID = "7bafa247-244f-431e-9bb1-739c81d19fb2",
-            [string] $Tenantname = "pharmacists.ca"
-            ,
-            [string] $clientId = "401add67-6c6e-494c-8501-bee62c16c924"
-            ,
-            [string] $clientSecret = "FGn8Q~9qxPCLd9TD6YYPh9wi0s0dxjCgMYlyCdp5"
-        )
+  
 
 
 
-
-        
-        #TODO Defining func3 Get-MicrosoftGraphAccessToken
-        function Get-MicrosoftGraphAccessToken {
-            $tokenBody = @{
-                Grant_Type    = 'client_credentials'  
-                Scope         = 'https://graph.microsoft.com/.default'  
-                Client_Id     = $clientId  
-                Client_Secret = $clientSecret
-            }  
-    
-            $tokenResponse = Invoke-RestMethod -Uri "https://login.microsoftonline.com/$TenantName/oauth2/v2.0/token" -Method POST -Body $tokenBody -ErrorAction Stop
-    
-            return $tokenResponse.access_token
-        }
-
-        #TODO Calling func3 Get-MicrosoftGraphAccessToken
-        $accessToken = Get-MicrosoftGraphAccessToken
-
-        if ($TenantId -and $AppId -and $AppSecret) {
-            # $graph = Connect-MSGraphApp -Tenant $TenantId -AppId $AppId -AppSecret $AppSecret -ea Stop
-
-
-            # TODO Calling Connect-MgGraph (IF conditions were met)
-            $graph = Connect-MgGraph -AccessToken $accessToken
-            Write-Verbose "Connected to Intune tenant $TenantId using app-based authentication (Azure AD authentication not supported)"
-        }
-        else {
-            # $graph = Connect-MSGraph -ea Stop
-
-            #TODO Calling Connect-MgGraph (IF conditions were not met)
-            $graph = Connect-MgGraph -AccessToken $accessToken
-            Write-Verbose "Connected to Intune tenant $($graph.TenantId)"
-        }
-    }
-
-
-
-    #TODO func6 Invoke-MDMReenrollment
+    #TODO func6 Begin Defining Invoke-MDMReenrollment
     function Invoke-MDMReenrollment {
         <#
         .SYNOPSIS
@@ -468,7 +243,8 @@ function Reset-IntuneEnrollment {
     }
 
 
-    #TODO func7 Get-IntuneLog
+    #TODO func6 End of Defining Invoke-MDMReenrollment
+    #TODO func7 Begin Defining Get-IntuneLog
     function Get-IntuneLog {
         <#
         .SYNOPSIS
@@ -628,8 +404,8 @@ function Reset-IntuneEnrollment {
         # regedit.exe
     }
 
-
-    #TODO func9 Reset-HybridADJoin
+    #TODO func7 End of Defining Get-IntuneLog
+    #TODO func9 Begin Defining Reset-HybridADJoin
     #Reset-HybridADJoin
     function Reset-HybridADJoin {
         <#
@@ -989,7 +765,7 @@ function Reset-IntuneEnrollment {
         Invoke-Command @param
     }
 
-
+    #TODO func9 End of Defining Reset-HybridADJoin
     #TODO func11 Get-IntuneEnrollmentStatus
     function Get-IntuneEnrollmentStatus {
         <#
@@ -1290,6 +1066,6 @@ function Reset-IntuneEnrollment {
         Write-Host "DONE :)" -ForegroundColor Green
     }
 }
-#TODO Calling Reset-IntuneEnrollment
+#TODO (MAIN) Calling func5 Reset-IntuneEnrollment
 Reset-IntuneEnrollment
 
