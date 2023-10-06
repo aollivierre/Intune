@@ -94,7 +94,7 @@ function Connect-Graph {
         ,
         [string] $clientId = "401add67-6c6e-494c-8501-bee62c16c924"
         ,
-        [string] $clientSecret = "FGn8Q~9qxPCLd9TD6YYPh9wi0s0dxjCgMYlyCdp5"
+        [string] $clientSecret = "Your Client Secret here"
     )
 
 
