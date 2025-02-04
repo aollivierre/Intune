@@ -2,6 +2,35 @@
 
 $script:Version = "1.1.0"
 
+# Function to encrypt string with portable encryption
+function Protect-String {
+    param(
+        [string]$String
+    )
+    
+    $secureString = ConvertTo-SecureString -String $String -AsPlainText -Force
+    $encrypted = $secureString | ConvertFrom-SecureString -Key (1..16)
+    return $encrypted
+}
+
+# Function to decrypt string with portable encryption
+function Unprotect-String {
+    param(
+        [string]$EncryptedString
+    )
+    
+    try {
+        $secureString = ConvertTo-SecureString -String $EncryptedString -Key (1..16)
+        $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secureString)
+        return [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+    }
+    finally {
+        if ($BSTR) {
+            [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($BSTR)
+        }
+    }
+}
+
 function Get-TenantDetails {
     param (
         [string]$TenantID,
@@ -91,24 +120,27 @@ function New-SecretsFile {
     $clientId = Read-Host -Prompt "Enter your Application (Client) ID"
     $clientSecret = Get-SecureInput "Enter your Client Secret"
     
+    # Convert SecureString to plain text for encryption
+    $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($clientSecret)
+    $plainSecret = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+    [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($BSTR)
+    
+    # Create object with encrypted values
     $secretsObject = @{
-        TenantID = $tenantId
-        ClientID = $clientId
-        ClientSecret = $clientSecret
+        TenantID = Protect-String -String $tenantId
+        ClientID = Protect-String -String $clientId
+        ClientSecret = Protect-String -String $plainSecret
     }
     
     try {
-        # Convert to secure XML and save
-        $secretsObject | Export-Clixml -Path $FilePath
+        $secretsObject | ConvertTo-Json | Out-File -FilePath $FilePath -Force -Encoding UTF8
         Write-Host "Secrets file created successfully!" -ForegroundColor Green
         
         # Return plain text version for immediate use
         return @{
             TenantID = $tenantId
             ClientID = $clientId
-            ClientSecret = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto(
-                [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($clientSecret)
-            )
+            ClientSecret = $plainSecret
         }
     }
     catch {
@@ -259,14 +291,16 @@ Start-Sleep -Seconds 5
 # Ensure we're running with the right execution policy
 Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
 
-# Install NuGet if not already installed
+# Install NuGet silently if not already installed
 if (-not (Get-PackageProvider -Name NuGet -ErrorAction SilentlyContinue)) {
-    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+    Write-Host "Installing NuGet provider..." -ForegroundColor Yellow
+    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -Scope CurrentUser | Out-Null
 }
 
 # Install required script if not already installed
 if (-not (Get-InstalledScript -Name Get-WindowsAutoPilotInfo -ErrorAction SilentlyContinue)) {
-    Install-Script -Name Get-WindowsAutoPilotInfo -Force
+    Write-Host "Installing Get-WindowsAutoPilotInfo script..." -ForegroundColor Yellow
+    Install-Script -Name Get-WindowsAutoPilotInfo -Force -Scope CurrentUser
 }
 
 # Define the path to the PSD1 file using the script's location
@@ -369,6 +403,21 @@ try {
 } catch {
     Write-Error "Failed to execute Get-WindowsAutoPilotInfo: $_"
     exit 1
+}
+
+# After successful execution, add reboot countdown
+if ($?) {
+    Write-Host "`nDevice registration successful!" -ForegroundColor Green
+    Write-Host "System will reboot in 10 seconds to apply changes..." -ForegroundColor Yellow
+    
+    # Countdown display
+    10..1 | ForEach-Object {
+        Write-Host "Rebooting in $_ seconds..." -ForegroundColor Yellow
+        Start-Sleep -Seconds 1
+    }
+    
+    # Initiate reboot
+    Restart-Computer -Force
 }
 
 $nextStepsMessage = @"
