@@ -319,14 +319,14 @@ $validationResults = $null
 do {
     if (Test-Path -Path $psdFilePath) {
         try {
-            # Import encrypted secrets
-            $importedSecrets = Import-Clixml -Path $psdFilePath
+            # Import encrypted secrets from JSON
+            $importedSecrets = Get-Content -Path $psdFilePath -Raw | ConvertFrom-Json
+            
+            # Decrypt the values
             $config = @{
-                TenantID = $importedSecrets.TenantID
-                ClientID = $importedSecrets.ClientID
-                ClientSecret = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto(
-                    [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($importedSecrets.ClientSecret)
-                )
+                TenantID = Unprotect-String -EncryptedString $importedSecrets.TenantID
+                ClientID = Unprotect-String -EncryptedString $importedSecrets.ClientID
+                ClientSecret = Unprotect-String -EncryptedString $importedSecrets.ClientSecret
             }
             
             # Test if secrets are valid
@@ -350,6 +350,7 @@ do {
         }
         catch {
             Write-Warning "Failed to import existing secrets: $_"
+            Write-Host "Creating new secrets file..." -ForegroundColor Yellow
             $config = New-SecretsFile -FilePath $psdFilePath
             $validationResults = Test-SecretsValidity -TenantID $config.TenantID -ClientID $config.ClientID -ClientSecret $config.ClientSecret
             $secretsValid = $validationResults.TokenValid -and $validationResults.PermissionsValid
@@ -359,6 +360,7 @@ do {
         }
     }
     else {
+        Write-Host "No secrets file found. Creating new one..." -ForegroundColor Yellow
         $config = New-SecretsFile -FilePath $psdFilePath
         $validationResults = Test-SecretsValidity -TenantID $config.TenantID -ClientID $config.ClientID -ClientSecret $config.ClientSecret
         $secretsValid = $validationResults.TokenValid -and $validationResults.PermissionsValid
