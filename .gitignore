@@ -40,3 +40,7 @@ $RECYCLE.BIN/
 Modules/
 
 # End of https://www.toptal.com/developers/gitignore/api/windowssecrets.json
+AutoPilot/secrets.psd1
+AutoPilot/secrets.json
+AutoPilot/SCR-20250204-lfgc.png
+AutoPilot/SCR-20250204-ldda.png
