@@ -1,5 +1,16 @@
 # https://andrewstaylor.com/2023/06/13/authenticating-to-new-get-windowsautopilotinfo/
 
+# Copy script to temp directory for portability at the start
+$tempScriptPath = Join-Path $env:TEMP "Get-WindowsAutopilotinfowithAppreg.ps1"
+try {
+    Copy-Item -Path $MyInvocation.MyCommand.Path -Destination $tempScriptPath -Force
+    Write-Host "Script copied to: $tempScriptPath" -ForegroundColor Green
+    Write-Host "You can safely remove the USB drive and use the script from the temp location." -ForegroundColor Green
+}
+catch {
+    Write-Warning "Failed to copy script to temp directory: $_"
+}
+
 $script:Version = "1.1.0"
 
 # Function to encrypt string with portable encryption
@@ -70,12 +81,109 @@ function Get-TenantDetails {
     }
 }
 
+# Function to get app registration details
+function Get-AppRegistrationDetails {
+    param (
+        [string]$ClientID,
+        [string]$AccessToken
+    )
+    
+    try {
+        Write-Host "Fetching app registration details..." -ForegroundColor Yellow
+        
+        $headers = @{
+            'Authorization' = "Bearer $AccessToken"
+            'Content-Type' = 'application/json'
+        }
+        
+        # Use $filter query to find application by appId (ClientID)
+        $response = Invoke-RestMethod -Method Get -Uri "https://graph.microsoft.com/v1.0/applications?`$filter=appId eq '$ClientID'" -Headers $headers
+        
+        if ($response.value.Count -gt 0) {
+            $app = $response.value[0]
+            Write-Host "Successfully retrieved app details for: $($app.displayName)" -ForegroundColor Green
+            return @{
+                DisplayName = $app.displayName
+                AppId = $app.appId
+                CreatedDateTime = $app.createdDateTime
+                ObjectId = $app.id
+            }
+        } else {
+            Write-Warning "No application found with Client ID: $ClientID"
+            return $null
+        }
+    }
+    catch {
+        Write-Warning "Could not fetch app registration details: $($_.Exception.Message)"
+        if ($_.Exception.Response) {
+            $result = $_.Exception.Response.GetResponseStream()
+            $reader = New-Object System.IO.StreamReader($result)
+            $reader.BaseStream.Position = 0
+            $reader.DiscardBufferedData()
+            $responseBody = $reader.ReadToEnd()
+            Write-Warning "Detailed error: $responseBody"
+        }
+        return $null
+    }
+}
+
+# Function to test client secret validity
+function Test-ClientSecretValidity {
+    param (
+        [string]$ClientID,
+        [string]$ClientSecret
+    )
+    
+    try {
+        $result = @{
+            IsValid = $false
+            ExpiryDate = $null
+            Error = $null
+        }
+
+        # Try to decode the secret to get its expiry (if possible)
+        if ($ClientSecret -match '^[A-Za-z0-9+/=]+$') {
+            try {
+                $decodedBytes = [System.Convert]::FromBase64String($ClientSecret)
+                $decodedText = [System.Text.Encoding]::UTF8.GetString($decodedBytes)
+                if ($decodedText -match 'exp=(\d+)') {
+                    $expiryTimestamp = [int]$matches[1]
+                    $result.ExpiryDate = (Get-Date "1970-01-01").AddSeconds($expiryTimestamp)
+                }
+            }
+            catch {
+                # Ignore decoding errors
+            }
+        }
+
+        # Test the secret by attempting to get a token
+        $url = "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+        $body = @{
+            grant_type = "client_credentials"
+            client_id = $ClientID
+            client_secret = $ClientSecret
+            scope = "https://graph.microsoft.com/.default"
+        }
+        
+        $response = Invoke-RestMethod -Method Post -Uri $url -Body $body -ContentType "application/x-www-form-urlencoded"
+        $result.IsValid = $true
+        
+        return $result
+    }
+    catch {
+        $result.Error = $_.Exception.Message
+        return $result
+    }
+}
+
 function Show-InitializationReport {
     param (
         [string]$TenantName,
         [string]$TenantID,
         [string]$ClientID,
-        [hashtable]$ValidationResults
+        [hashtable]$ValidationResults,
+        [hashtable]$AppDetails,
+        [hashtable]$SecretValidation
     )
     
     $horizontalLine = "=" * 80
@@ -84,17 +192,29 @@ function Show-InitializationReport {
     Write-Host $horizontalLine -ForegroundColor Cyan
     Write-Host "Purpose: Register this device with Windows Autopilot in your Intune tenant"
     Write-Host "Script Location: $PSScriptRoot"
+    Write-Host "Temp Script Location: $tempScriptPath"
     Write-Host "Execution Time: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
+    Write-Host ""
+    Write-Host "Application Details:" -ForegroundColor Yellow
+    if ($AppDetails) {
+        Write-Host "- App Name: $($AppDetails.DisplayName)"
+        Write-Host "- App ID: $($AppDetails.AppId)"
+        Write-Host "- Created: $($AppDetails.CreatedDateTime)"
+    } else {
+        Write-Host "- App Details: Not available (insufficient permissions)" -ForegroundColor Yellow
+    }
     Write-Host ""
     Write-Host "Connection Parameters:" -ForegroundColor Yellow
     Write-Host "- Tenant Name: $TenantName"
     Write-Host "- Tenant ID: $TenantID"
-    Write-Host "- App ID: $ClientID"
     Write-Host ""
     Write-Host "Credential Validation Results:" -ForegroundColor Yellow
     Write-Host "- Access Token Valid: $($ValidationResults.TokenValid)" -ForegroundColor $(if ($ValidationResults.TokenValid) { 'Green' } else { 'Red' })
     Write-Host "- Token Expiration: $($ValidationResults.TokenExpiration)" -ForegroundColor $(if ($ValidationResults.TokenValid) { 'Green' } else { 'Red' })
     Write-Host "- Required Permissions Present: $($ValidationResults.PermissionsValid)" -ForegroundColor $(if ($ValidationResults.PermissionsValid) { 'Green' } else { 'Red' })
+    if ($SecretValidation.ExpiryDate) {
+        Write-Host "- Client Secret Expires: $($SecretValidation.ExpiryDate)" -ForegroundColor $(if ($SecretValidation.ExpiryDate -gt (Get-Date)) { 'Green' } else { 'Red' })
+    }
     Write-Host $horizontalLine -ForegroundColor Cyan
     Write-Host ""
 }
@@ -126,14 +246,14 @@ function New-SecretsFile {
     [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($BSTR)
     
     # Create object with encrypted values
-    $secretsObject = @{
-        TenantID = Protect-String -String $tenantId
-        ClientID = Protect-String -String $clientId
-        ClientSecret = Protect-String -String $plainSecret
-    }
+    $secretsObject = "@{`n"
+    $secretsObject += "    TenantID = `"$(Protect-String -String $tenantId)`"`n"
+    $secretsObject += "    ClientID = `"$(Protect-String -String $clientId)`"`n"
+    $secretsObject += "    ClientSecret = `"$(Protect-String -String $plainSecret)`"`n"
+    $secretsObject += "}"
     
     try {
-        $secretsObject | ConvertTo-Json | Out-File -FilePath $FilePath -Force -Encoding UTF8
+        $secretsObject | Out-File -FilePath $FilePath -Force -Encoding UTF8
         Write-Host "Secrets file created successfully!" -ForegroundColor Green
         
         # Return plain text version for immediate use
@@ -206,6 +326,16 @@ function Test-SecretsValidity {
                 Name = "DeviceManagementManagedDevices.ReadWrite.All"
                 Endpoint = "https://graph.microsoft.com/v1.0/deviceManagement/managedDevices"
                 Method = "GET"
+            },
+            @{
+                Name = "Organization.Read.All"
+                Endpoint = "https://graph.microsoft.com/v1.0/organization"
+                Method = "GET"
+            },
+            @{
+                Name = "Application.Read.All"
+                Endpoint = "https://graph.microsoft.com/v1.0/applications"
+                Method = "GET"
             }
         )
         
@@ -265,21 +395,50 @@ $ScriptName = $MyInvocation.MyCommand.Name
 Write-Host "Executing $ScriptName" -ForegroundColor Green
 
 $warningMessage = @"
-[WARNING] Before proceeding, ensure your Entra ID App Registration has the following Graph API permissions:
+[WARNING] Before proceeding, ensure your Entra ID App Registration has the following Microsoft Graph API permissions:
 
-Required Permissions:
+Required Application Permissions (NOT Delegated):
 1. DeviceManagementServiceConfig.ReadWrite.All
+   - Purpose: Read and write Windows Autopilot deployment configurations
+   - Type: Application
+   - Required: Yes
+
 2. Device.ReadWrite.All
+   - Purpose: Create and manage device objects
+   - Type: Application
+   - Required: Yes
+
 3. DeviceManagementManagedDevices.ReadWrite.All
+   - Purpose: Read and write Microsoft Intune managed devices
+   - Type: Application
+   - Required: Yes
 
-Optional Permissions (depending on your scenario):
-4. Group.ReadWrite.All (if using group assignments)
-5. Domain.ReadWrite.All (if using hybrid join)
+4. Organization.Read.All
+   - Purpose: Read organization information (tenant details)
+   - Type: Application
+   - Required: Yes
 
-These permissions must be:
-- Configured as Application permissions (not Delegated)
-- Granted admin consent by a Global Administrator
-- Associated with a valid client secret
+5. Application.Read.All
+   - Purpose: Read application information (app registration details)
+   - Type: Application
+   - Required: Yes
+
+Optional Application Permissions (NOT Delegated):
+6. Group.ReadWrite.All
+   - Purpose: Manage group assignments for devices
+   - Type: Application
+   - Required: Only if using group assignments
+
+7. Domain.ReadWrite.All
+   - Purpose: Manage domain settings for hybrid join
+   - Type: Application
+   - Required: Only if using hybrid Azure AD join
+
+Important Notes:
+- ALL permissions must be configured as Application permissions (NOT Delegated)
+- Admin consent MUST be granted for all permissions
+- A valid client secret with sufficient expiry time is required
+- Global Administrator rights needed for granting admin consent
 
 Press Ctrl+C to cancel if these permissions are not configured.
 "@
@@ -291,16 +450,21 @@ Start-Sleep -Seconds 5
 # Ensure we're running with the right execution policy
 Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
 
+# Set TLS 1.2 for compatibility
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
 # Install NuGet silently if not already installed
-if (-not (Get-PackageProvider -Name NuGet -ErrorAction SilentlyContinue)) {
+if (-not (Get-PackageProvider -Name NuGet -ListAvailable -ErrorAction SilentlyContinue)) {
     Write-Host "Installing NuGet provider..." -ForegroundColor Yellow
-    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -Scope CurrentUser | Out-Null
+    Install-PackageProvider -Name NuGet -ForceBootstrap -Force -Confirm:$false | Out-Null
+    Write-Host "NuGet provider installed successfully." -ForegroundColor Green
 }
 
 # Install required script if not already installed
 if (-not (Get-InstalledScript -Name Get-WindowsAutoPilotInfo -ErrorAction SilentlyContinue)) {
     Write-Host "Installing Get-WindowsAutoPilotInfo script..." -ForegroundColor Yellow
-    Install-Script -Name Get-WindowsAutoPilotInfo -Force -Scope CurrentUser
+    Install-Script -Name Get-WindowsAutoPilotInfo -Force -Scope CurrentUser -Confirm:$false
+    Write-Host "Get-WindowsAutoPilotInfo script installed successfully." -ForegroundColor Green
 }
 
 # Define the path to the PSD1 file using the script's location
@@ -374,8 +538,15 @@ do {
     }
 } while (-not $secretsValid)
 
-# Show initialization report with validation results
-Show-InitializationReport -TenantName $tenantName -TenantID $config.TenantID -ClientID $config.ClientID -ValidationResults $validationResults
+# After getting valid credentials, get app details and test secret
+if ($secretsValid) {
+    $appDetails = Get-AppRegistrationDetails -ClientID $config.ClientID -AccessToken $validationResults.AccessToken
+    $secretValidation = Test-ClientSecretValidity -ClientID $config.ClientID -ClientSecret $config.ClientSecret
+}
+
+# Show initialization report with all details
+Show-InitializationReport -TenantName $tenantName -TenantID $config.TenantID -ClientID $config.ClientID `
+    -ValidationResults $validationResults -AppDetails $appDetails -SecretValidation $secretValidation
 
 # Extract parameters from the config
 $TenantID = $config.TenantID
